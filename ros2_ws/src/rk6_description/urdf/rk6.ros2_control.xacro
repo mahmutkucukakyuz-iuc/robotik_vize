@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- rk6 ros2_control donanim tanimi: gz_ros2_control/GazeboSimSystem, pozisyon komut arayuzu
+     Limitler rk6.urdf.xacro ile ayni (lim1..lim6, kinematics_spec.json) -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="rk6_joint_if" params="name lower upper initial">
+    <joint name="${name}">
+      <command_interface name="position">
+        <param name="min">${lower}</param>
+        <param name="max">${upper}</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">${initial}</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </xacro:macro>
+
+  <ros2_control name="GazeboSimSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+    <xacro:rk6_joint_if name="joint1" lower="${-lim1}" upper="${lim1}" initial="0.0"/>
+    <xacro:rk6_joint_if name="joint2" lower="${-lim2}" upper="${lim2}" initial="0.0"/>
+    <xacro:rk6_joint_if name="joint3" lower="${-lim3}" upper="${lim3}" initial="0.0"/>
+    <xacro:rk6_joint_if name="joint4" lower="${-lim4}" upper="${lim4}" initial="0.0"/>
+    <xacro:rk6_joint_if name="joint5" lower="${-lim5}" upper="${lim5}" initial="0.0"/>
+    <xacro:rk6_joint_if name="joint6" lower="${-lim6}" upper="${lim6}" initial="0.0"/>
+    <!-- Gripper parmaklari (prizmatik, metre): 0 = kapali, 0.0235 = acik (Fusion export) -->
+    <xacro:if value="${use_gripper}">
+      <xacro:rk6_joint_if name="gripper_left_finger_joint"  lower="-0.002" upper="0.025" initial="0.0"/>
+      <xacro:rk6_joint_if name="gripper_right_finger_joint" lower="-0.002" upper="0.025" initial="0.0"/>
+    </xacro:if>
+  </ros2_control>
+
+</robot>

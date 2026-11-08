@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<!-- rk6 icin Gazebo Jetty dunyasi: fizik, sensor (kamera/IMU) sistemleri, zemin, isik ve kameranin gorecegi birkac nesne -->
+<sdf version="1.10">
+  <world name="rk6_world">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+
+    <gravity>0 0 -9.81</gravity>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Kameranin gorebilecegi renkli hedefler. Kolun yatay erisimi J1 ekseninden en fazla
+         ~0.69 m (0.23 + 0.23 + 0.20 + yan kaciklar). Robot dogrudan zeminde (kaide/ayak yok). Nesnelerin en yakin noktasi
+         J1 eksenine >= 0.79 m: kolun erisimi disinda, carpisma olmaz. -->
+
+    <model name="red_box">
+      <static>true</static>
+      <pose>0.85 0.30 0.05 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.1 0.1 0.1</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.1 0.1 0.1</size></box></geometry>
+          <material><ambient>0.9 0.1 0.1 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="blue_cylinder">
+      <static>true</static>
+      <pose>0.80 -0.40 0.075 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><cylinder><radius>0.05</radius><length>0.15</length></cylinder></geometry></collision>
+        <visual name="v">
+          <geometry><cylinder><radius>0.05</radius><length>0.15</length></cylinder></geometry>
+          <material><ambient>0.1 0.2 0.9 1</ambient><diffuse>0.1 0.2 0.9 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="green_sphere">
+      <static>true</static>
+      <pose>-0.60 0.60 0.06 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><sphere><radius>0.06</radius></sphere></geometry></collision>
+        <visual name="v">
+          <geometry><sphere><radius>0.06</radius></sphere></geometry>
+          <material><ambient>0.1 0.8 0.2 1</ambient><diffuse>0.1 0.8 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

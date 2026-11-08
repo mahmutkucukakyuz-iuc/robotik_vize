@@ -1,0 +1,663 @@
+[INFO] [launch]: All log files can be found below /home/kullanici/.ros/log/2026-10-30-12-44-05-509604-kullanici-69085
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [69107]
+[INFO] [robot_state_publisher-2]: process started with pid [69108]
+[INFO] [parameter_bridge-3]: process started with pid [69109]
+[INFO] [create-4]: process started with pid [69110]
+[create-4] [INFO] [1793353445.765419386] [ros_gz_sim]: Requesting list of world names.
+[robot_state_publisher-2] [INFO] [1793353445.767997717] [robot_state_publisher]: Robot initialized
+[gazebo-1] (2026-10-30 12:44:05.884) [info] [Gui.cc:339] Gazebo Sim GUI    v10.5.0
+[gazebo-1] (2026-10-30 12:44:05.986) [info] [gz.cc:242] Received world [/home/kullanici/rt_ws_v2/install/rk6_manipulation/share/rk6_manipulation/worlds/rk6_pick_world.sdf] from the GUI.
+[gazebo-1] (2026-10-30 12:44:05.987) [info] [gz.cc:407] Gazebo Sim Server v10.5.0
+[gazebo-1] (2026-10-30 12:44:05.996) [info] [ServerPrivate.cc:697] Loading SDF world file[/home/kullanici/rt_ws_v2/install/rk6_manipulation/share/rk6_manipulation/worlds/rk6_pick_world.sdf].
+[gazebo-1] (2026-10-30 12:44:05.998) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/Main.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:06.434) [warning] [Application.cc:923] [GUI] [QT] qrc:qml/Main.qml:163:11: QML ToolBar (parent or ancestor of Material): Binding loop detected for property "foreground":
+[gazebo-1] qrc:qml/Main.qml:165:5
+[parameter_bridge-3] [INFO] [1793353446.776758614] [rk6_gz_bridge]: Creating GZ->ROS Bridge: [/clock (gz.msgs.Clock) -> /clock (rosgraph_msgs/msg/Clock)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1793353446.777946958] [rk6_gz_bridge]: Creating GZ->ROS Bridge: [/wrist_camera/image (gz.msgs.Image) -> /wrist_camera/image_raw (sensor_msgs/msg/Image)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1793353446.781157519] [rk6_gz_bridge]: Creating GZ->ROS Bridge: [/wrist_camera/camera_info (gz.msgs.CameraInfo) -> /wrist_camera/camera_info (sensor_msgs/msg/CameraInfo)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1793353446.782301905] [rk6_gz_bridge]: Creating GZ->ROS Bridge: [/imu (gz.msgs.IMU) -> /imu (sensor_msgs/msg/Imu)] (Lazy 0)
+[parameter_bridge-3] [INFO] [1793353446.783345880] [rk6_gz_bridge]: Creating GZ->ROS Bridge: [/rk6/pose (gz.msgs.Pose_V) -> /gz_link_poses (tf2_msgs/msg/TFMessage)] (Lazy 0)
+[gazebo-1] (2026-10-30 12:44:07.850) [info] [SystemManager.cc:54] Serving entity system service on [/entity/system/add]
+[gazebo-1] (2026-10-30 12:44:07.852) [info] [SimulationRunner.cc:347] Serving world controls on [/world/rk6_world/control], [/world/rk6_world/control/state] and [/world/rk6_world/playback/control]
+[gazebo-1] (2026-10-30 12:44:07.852) [info] [SimulationRunner.cc:373] Serving GUI information on [/world/rk6_world/gui/info]
+[gazebo-1] (2026-10-30 12:44:07.852) [info] [SimulationRunner.cc:376] World [rk6_world] initialized with [1ms] physics profile.
+[gazebo-1] (2026-10-30 12:44:07.852) [info] [SimulationRunner.cc:383] Serving world SDF generation service on [/world/rk6_world/generate_world_sdf]
+[gazebo-1] (2026-10-30 12:44:07.852) [info] [ServerPrivate.cc:357] Serving world names on [/gazebo/worlds]
+[gazebo-1] (2026-10-30 12:44:07.852) [info] [ServerPrivate.cc:370] Resource path add service on [/gazebo/resource_paths/add].
+[gazebo-1] (2026-10-30 12:44:07.853) [info] [ServerPrivate.cc:383] Resource path get service on [/gazebo/resource_paths/get].
+[gazebo-1] (2026-10-30 12:44:07.853) [info] [ServerPrivate.cc:398] Resource path resolve service on [/gazebo/resource_paths/resolve].
+[gazebo-1] (2026-10-30 12:44:07.953) [info] [ServerPrivate.cc:412] Resource paths published on [/gazebo/resource_paths].
+[create-4] [INFO] [1793353447.955351983] [ros_gz_sim]: Waiting messages on topic [robot_description].
+[gazebo-1] (2026-10-30 12:44:08.054) [info] [ServerPrivate.cc:425] Server control service on [/server_control].
+[gazebo-1] (2026-10-30 12:44:08.054) [info] [SimulationRunner.cc:868] Found no publishers on /stats, adding root stats topic
+[gazebo-1] (2026-10-30 12:44:08.054) [info] [SimulationRunner.cc:902] Found no publishers on /clock, adding root clock topic
+[gazebo-1] (2026-10-30 12:44:08.163) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.178) [info] [Application.cc:756] [GUI] Added plugin [3D View] to main window
+[gazebo-1] (2026-10-30 12:44:08.178) [info] [Application.cc:653] [GUI] Loaded plugin [MinimalScene] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libMinimalScene.so]
+[gazebo-1] (2026-10-30 12:44:08.182) [info] [EntityContextMenu.cc:134] [GUI] Currently tracking topic on [/gui/currently_tracked]
+[gazebo-1] (2026-10-30 12:44:08.191) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.200) [info] [Application.cc:756] [GUI] Added plugin [Entity Context Menu] to main window
+[gazebo-1] (2026-10-30 12:44:08.200) [info] [Application.cc:653] [GUI] Loaded plugin [EntityContextMenuPlugin] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libEntityContextMenuPlugin.so]
+[gazebo-1] (2026-10-30 12:44:08.247) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.255) [info] [Application.cc:756] [GUI] Added plugin [Scene Manager] to main window
+[gazebo-1] (2026-10-30 12:44:08.255) [info] [Application.cc:653] [GUI] Loaded plugin [GzSceneManager] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libGzSceneManager.so]
+[gazebo-1] (2026-10-30 12:44:08.257) [info] [InteractiveViewControl.cc:409] [GUI] Camera view controller topic advertised on [/gui/camera/view_control]
+[gazebo-1] (2026-10-30 12:44:08.257) [info] [InteractiveViewControl.cc:417] [GUI] Camera reference visual topic advertised on [/gui/camera/view_control/reference_visual]
+[gazebo-1] (2026-10-30 12:44:08.257) [info] [InteractiveViewControl.cc:427] [GUI] Camera view control sensitivity advertised on [/gui/camera/view_control/sensitivity]
+[gazebo-1] (2026-10-30 12:44:08.258) [info] [UserCommands.cc:751] Create service on [/world/rk6_world/create_multiple] (async)
+[gazebo-1] (2026-10-30 12:44:08.258) [info] [UserCommands.cc:753] Create service on [/world/rk6_world/create_multiple/blocking] (blocking)
+[gazebo-1] (2026-10-30 12:44:08.258) [info] [UserCommands.cc:751] Remove service on [/world/rk6_world/remove] (async)
+[gazebo-1] (2026-10-30 12:44:08.258) [info] [UserCommands.cc:753] Remove service on [/world/rk6_world/remove/blocking] (blocking)
+[gazebo-1] (2026-10-30 12:44:08.258) [info] [UserCommands.cc:751] Pose service on [/world/rk6_world/set_pose] (async)
+[gazebo-1] (2026-10-30 12:44:08.258) [info] [UserCommands.cc:753] Pose service on [/world/rk6_world/set_pose/blocking] (blocking)
+[gazebo-1] (2026-10-30 12:44:08.258) [info] [UserCommands.cc:751] Pose service on [/world/rk6_world/set_pose_vector] (async)
+[gazebo-1] (2026-10-30 12:44:08.258) [info] [UserCommands.cc:753] Pose service on [/world/rk6_world/set_pose_vector/blocking] (blocking)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:751] Light configuration service on [/world/rk6_world/light_config] (async)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:753] Light configuration service on [/world/rk6_world/light_config/blocking] (blocking)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:751] Physics service on [/world/rk6_world/set_physics] (async)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:753] Physics service on [/world/rk6_world/set_physics/blocking] (blocking)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:751] SphericalCoordinates service on [/world/rk6_world/set_spherical_coordinates] (async)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:753] SphericalCoordinates service on [/world/rk6_world/set_spherical_coordinates/blocking] (blocking)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:751] Enable collision service on [/world/rk6_world/enable_collision] (async)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:753] Enable collision service on [/world/rk6_world/enable_collision/blocking] (blocking)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:751] Disable collision service on [/world/rk6_world/disable_collision] (async)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:753] Disable collision service on [/world/rk6_world/disable_collision/blocking] (blocking)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:751] Material service on [/world/rk6_world/visual_config] (async)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:753] Material service on [/world/rk6_world/visual_config/blocking] (blocking)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:751] Material service on [/world/rk6_world/wheel_slip] (async)
+[gazebo-1] (2026-10-30 12:44:08.259) [info] [UserCommands.cc:753] Material service on [/world/rk6_world/wheel_slip/blocking] (blocking)
+[gazebo-1] (2026-10-30 12:44:08.257) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[create-4] [INFO] [1793353448.260183719] [ros_gz_sim]: Entity creation successful.
+[gazebo-1] (2026-10-30 12:44:08.264) [info] [Application.cc:756] [GUI] Added plugin [Interactive view control] to main window
+[gazebo-1] (2026-10-30 12:44:08.264) [info] [Application.cc:653] [GUI] Loaded plugin [InteractiveViewControl] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libInteractiveViewControl.so]
+[gazebo-1] (2026-10-30 12:44:08.265) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.269) [info] [LevelManager.cc:646] Loaded level [default]
+[gazebo-1] (2026-10-30 12:44:08.272) [info] [Application.cc:756] [GUI] Added plugin [Camera tracking] to main window
+[gazebo-1] (2026-10-30 12:44:08.272) [info] [Application.cc:653] [GUI] Loaded plugin [CameraTracking] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libCameraTracking.so]
+[gazebo-1] (2026-10-30 12:44:08.274) [info] [MarkerManager.cc:752] [GUI] Listening to stats on [/world/rk6_world/stats]
+[gazebo-1] (2026-10-30 12:44:08.274) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.282) [info] [Application.cc:756] [GUI] Added plugin [Marker Manager] to main window
+[gazebo-1] (2026-10-30 12:44:08.282) [info] [Application.cc:653] [GUI] Loaded plugin [MarkerManager] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libMarkerManager.so]
+[gazebo-1] (2026-10-30 12:44:08.283) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.290) [info] [Application.cc:756] [GUI] Added plugin [Select entities] to main window
+[gazebo-1] (2026-10-30 12:44:08.290) [info] [Application.cc:653] [GUI] Loaded plugin [SelectEntities] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libSelectEntities.so]
+[gazebo-1] (2026-10-30 12:44:08.293) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.300) [info] [Application.cc:756] [GUI] Added plugin [Spawn] to main window
+[gazebo-1] (2026-10-30 12:44:08.300) [info] [Application.cc:653] [GUI] Loaded plugin [Spawn] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libSpawn.so]
+[gazebo-1] (2026-10-30 12:44:08.306) [info] [VisualizationCapabilities.cc:2850] [GUI] View as transparent service on [/gui/view/transparent]
+[gazebo-1] (2026-10-30 12:44:08.307) [info] [VisualizationCapabilities.cc:2857] [GUI] View as wireframes service on [/gui/view/wireframes]
+[gazebo-1] (2026-10-30 12:44:08.307) [info] [VisualizationCapabilities.cc:2864] [GUI] View center of mass service on [/gui/view/com]
+[gazebo-1] (2026-10-30 12:44:08.307) [info] [VisualizationCapabilities.cc:2871] [GUI] View inertia service on [/gui/view/inertia]
+[gazebo-1] (2026-10-30 12:44:08.307) [info] [VisualizationCapabilities.cc:2879] [GUI] View collisions service on [/gui/view/collisions]
+[gazebo-1] (2026-10-30 12:44:08.307) [info] [VisualizationCapabilities.cc:2887] [GUI] View joints service on [/gui/view/joints]
+[gazebo-1] (2026-10-30 12:44:08.307) [info] [VisualizationCapabilities.cc:2894] [GUI] View frames service on [/gui/view/frames]
+[gazebo-1] (2026-10-30 12:44:08.307) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.316) [info] [Application.cc:756] [GUI] Added plugin [Visualization capabilities] to main window
+[gazebo-1] (2026-10-30 12:44:08.316) [info] [Application.cc:653] [GUI] Loaded plugin [VisualizationCapabilities] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libVisualizationCapabilities.so]
+[gazebo-1] (2026-10-30 12:44:08.321) [info] [WorldControl.cc:152] [GUI] Using world control service [/world/rk6_world/control]
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="wrist_camera"]/gz_frame_id:<urdf-string>:L0]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="imu_sensor"]/gz_frame_id:<urdf-string>:L0]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] (2026-10-30 12:44:08.322) [info] [WorldControl.cc:225] [GUI] Listening to stats on [/world/rk6_world/stats]
+[gazebo-1] (2026-10-30 12:44:08.322) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.330) [info] [Application.cc:756] [GUI] Added plugin [World control] to main window
+[gazebo-1] (2026-10-30 12:44:08.330) [info] [Application.cc:653] [GUI] Loaded plugin [WorldControl] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libWorldControl.so]
+[gazebo-1] (2026-10-30 12:44:08.332) [info] [WorldStats.cc:156] [GUI] Listening to stats on [/world/rk6_world/stats]
+[gazebo-1] (2026-10-30 12:44:08.332) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.340) [info] [Application.cc:756] [GUI] Added plugin [World stats] to main window
+[gazebo-1] (2026-10-30 12:44:08.340) [info] [Application.cc:653] [GUI] Loaded plugin [WorldStats] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libWorldStats.so]
+[gazebo-1] (2026-10-30 12:44:08.343) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.348) [info] [Application.cc:756] [GUI] Added plugin [Shapes] to main window
+[gazebo-1] (2026-10-30 12:44:08.348) [info] [Application.cc:653] [GUI] Loaded plugin [Shapes] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libShapes.so]
+[gazebo-1] (2026-10-30 12:44:08.349) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.355) [info] [Application.cc:756] [GUI] Added plugin [Lights] to main window
+[gazebo-1] (2026-10-30 12:44:08.355) [info] [Application.cc:653] [GUI] Loaded plugin [Lights] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libLights.so]
+[gazebo-1] (2026-10-30 12:44:08.374) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.379) [info] [Application.cc:756] [GUI] Added plugin [Transform control] to main window
+[gazebo-1] (2026-10-30 12:44:08.379) [info] [Application.cc:653] [GUI] Loaded plugin [TransformControl] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libTransformControl.so]
+[gazebo-1] (2026-10-30 12:44:08.383) [info] [Screenshot.cc:97] [GUI] Screenshot service on [/gui/screenshot]
+[gazebo-1] (2026-10-30 12:44:08.383) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.387) [info] [Application.cc:756] [GUI] Added plugin [Screenshot] to main window
+[gazebo-1] (2026-10-30 12:44:08.387) [info] [Application.cc:653] [GUI] Loaded plugin [Screenshot] from path [/opt/ros/lyrical/opt/gz_gui_vendor/lib/gz-gui-10/plugins/libScreenshot.so]
+[gazebo-1] (2026-10-30 12:44:08.389) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[INFO] [create-4]: process has finished cleanly [pid 69110]
+[INFO] [spawner-5]: process started with pid [69280]
+[gazebo-1] (2026-10-30 12:44:08.392) [info] [Application.cc:756] [GUI] Added plugin [Copy/Paste] to main window
+[gazebo-1] (2026-10-30 12:44:08.393) [info] [Application.cc:653] [GUI] Loaded plugin [CopyPaste] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libCopyPaste.so]
+[gazebo-1] (2026-10-30 12:44:08.427) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] (2026-10-30 12:44:08.432) [info] [Application.cc:756] [GUI] Added plugin [Component inspector] to main window
+[gazebo-1] (2026-10-30 12:44:08.432) [info] [Application.cc:653] [GUI] Loaded plugin [ComponentInspector] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libComponentInspector.so]
+[gazebo-1] [INFO] [1793353448.432661819] [gz_ros_control]: [gz_ros2_control] Fixed joint ['world_joint'] (Entity='55') is skipped.
+[gazebo-1] [INFO] [1793353448.432775625] [gz_ros_control]: [gz_ros2_control] Fixed joint ['tool0_joint'] (Entity='64') is skipped.
+[gazebo-1] [INFO] [1793353448.433661475] [gz_ros_control]: Loading controller_manager
+[gazebo-1] (2026-10-30 12:44:08.435) [info] [EntityContextMenu.cc:134] [GUI] Currently tracking topic on [/gui/currently_tracked]
+[gazebo-1] (2026-10-30 12:44:08.444) [warning] [Application.cc:923] [GUI] [QT] QQmlComponent: attempted to load via a relative URL 'qrc:qml/GzCard.qml' in resource file system. This is not fully supported and may not work
+[gazebo-1] [INFO] [1793353448.446624454] [controller_manager]: Using ROS clock for triggering controller manager cycles.
+[gazebo-1] [WARN] [1793353448.446678927] [controller_manager]: The resource manager is not yet initialized, will wait for the robot description to initialize it..
+[gazebo-1] (2026-10-30 12:44:08.448) [info] [Application.cc:756] [GUI] Added plugin [Entity tree] to main window
+[gazebo-1] (2026-10-30 12:44:08.449) [info] [Application.cc:653] [GUI] Loaded plugin [EntityTree] from path [/opt/ros/lyrical/opt/gz_sim_vendor/lib/gz-sim-10/plugins/gui/libEntityTree.so]
+[gazebo-1] [INFO] [1793353448.453026549] [controller_manager]: Subscribing to '/robot_description' topic for robot description.
+[gazebo-1] [WARN] [1793353448.453103214] [gz_ros_control]: Waiting RM to load and initialize hardware...
+[gazebo-1] [INFO] [1793353448.621193500] [controller_manager]: Received robot description from topic.
+[gazebo-1] [INFO] [1793353448.621292698] [controller_manager]: Enforcing command limits is enabled...
+[gazebo-1] [INFO] [1793353448.624076374] [gz_ros_control]: Using JointLimiter for joint 'gripper_right_finger_joint' in hardware 'GazeboSimSystem' : '  has position limits: true [-0.002, 0.025]
+[gazebo-1]   has velocity limits: true [0.1]
+[gazebo-1]   has acceleration limits: false [nan]
+[gazebo-1]   has deceleration limits: false [nan]
+[gazebo-1]   has jerk limits: false [nan]
+[gazebo-1]   has effort limits: true [20]
+[gazebo-1]   angle wraparound: false'
+[gazebo-1] [INFO] [1793353448.624099498] [gz_ros_control]: Creating JointSaturationLimiter for joint 'gripper_right_finger_joint' in hardware 'GazeboSimSystem'
+[gazebo-1] [INFO] [1793353448.624141437] [gz_ros_control]: Using JointLimiter for joint 'gripper_left_finger_joint' in hardware 'GazeboSimSystem' : '  has position limits: true [-0.002, 0.025]
+[gazebo-1]   has velocity limits: true [0.1]
+[gazebo-1]   has acceleration limits: false [nan]
+[gazebo-1]   has deceleration limits: false [nan]
+[gazebo-1]   has jerk limits: false [nan]
+[gazebo-1]   has effort limits: true [20]
+[gazebo-1]   angle wraparound: false'
+[gazebo-1] [INFO] [1793353448.624157869] [gz_ros_control]: Creating JointSaturationLimiter for joint 'gripper_left_finger_joint' in hardware 'GazeboSimSystem'
+[gazebo-1] [INFO] [1793353448.624165192] [gz_ros_control]: Using JointLimiter for joint 'joint6' in hardware 'GazeboSimSystem' : '  has position limits: true [-1.5708, 1.5708]
+[gazebo-1]   has velocity limits: true [2]
+[gazebo-1]   has acceleration limits: false [nan]
+[gazebo-1]   has deceleration limits: false [nan]
+[gazebo-1]   has jerk limits: false [nan]
+[gazebo-1]   has effort limits: true [20]
+[gazebo-1]   angle wraparound: false'
+[gazebo-1] [INFO] [1793353448.624169240] [gz_ros_control]: Creating JointSaturationLimiter for joint 'joint6' in hardware 'GazeboSimSystem'
+[gazebo-1] [INFO] [1793353448.624174701] [gz_ros_control]: Using JointLimiter for joint 'joint5' in hardware 'GazeboSimSystem' : '  has position limits: true [-1.5708, 1.5708]
+[gazebo-1]   has velocity limits: true [2]
+[gazebo-1]   has acceleration limits: false [nan]
+[gazebo-1]   has deceleration limits: false [nan]
+[gazebo-1]   has jerk limits: false [nan]
+[gazebo-1]   has effort limits: true [30]
+[gazebo-1]   angle wraparound: false'
+[gazebo-1] [INFO] [1793353448.624178478] [gz_ros_control]: Creating JointSaturationLimiter for joint 'joint5' in hardware 'GazeboSimSystem'
+[gazebo-1] [INFO] [1793353448.624183467] [gz_ros_control]: Using JointLimiter for joint 'joint3' in hardware 'GazeboSimSystem' : '  has position limits: true [-2.35619, 2.35619]
+[gazebo-1]   has velocity limits: true [2]
+[gazebo-1]   has acceleration limits: false [nan]
+[gazebo-1]   has deceleration limits: false [nan]
+[gazebo-1]   has jerk limits: false [nan]
+[gazebo-1]   has effort limits: true [60]
+[gazebo-1]   angle wraparound: false'
+[gazebo-1] [INFO] [1793353448.624187004] [gz_ros_control]: Creating JointSaturationLimiter for joint 'joint3' in hardware 'GazeboSimSystem'
+[gazebo-1] [INFO] [1793353448.624192033] [gz_ros_control]: Using JointLimiter for joint 'joint2' in hardware 'GazeboSimSystem' : '  has position limits: true [-1.5708, 1.5708]
+[gazebo-1]   has velocity limits: true [2]
+[gazebo-1]   has acceleration limits: false [nan]
+[gazebo-1]   has deceleration limits: false [nan]
+[gazebo-1]   has jerk limits: false [nan]
+[gazebo-1]   has effort limits: true [100]
+[gazebo-1]   angle wraparound: false'
+[gazebo-1] [INFO] [1793353448.624195530] [gz_ros_control]: Creating JointSaturationLimiter for joint 'joint2' in hardware 'GazeboSimSystem'
+[gazebo-1] [INFO] [1793353448.624200209] [gz_ros_control]: Using JointLimiter for joint 'joint4' in hardware 'GazeboSimSystem' : '  has position limits: true [-1.5708, 1.5708]
+[gazebo-1]   has velocity limits: true [2]
+[gazebo-1]   has acceleration limits: false [nan]
+[gazebo-1]   has deceleration limits: false [nan]
+[gazebo-1]   has jerk limits: false [nan]
+[gazebo-1]   has effort limits: true [30]
+[gazebo-1]   angle wraparound: false'
+[gazebo-1] [INFO] [1793353448.624229675] [gz_ros_control]: Creating JointSaturationLimiter for joint 'joint4' in hardware 'GazeboSimSystem'
+[gazebo-1] [INFO] [1793353448.624234574] [gz_ros_control]: Using JointLimiter for joint 'joint1' in hardware 'GazeboSimSystem' : '  has position limits: true [-2.35619, 2.35619]
+[gazebo-1]   has velocity limits: true [2]
+[gazebo-1]   has acceleration limits: false [nan]
+[gazebo-1]   has deceleration limits: false [nan]
+[gazebo-1]   has jerk limits: false [nan]
+[gazebo-1]   has effort limits: true [100]
+[gazebo-1]   angle wraparound: false'
+[gazebo-1] [INFO] [1793353448.624238141] [gz_ros_control]: Creating JointSaturationLimiter for joint 'joint1' in hardware 'GazeboSimSystem'
+[gazebo-1] [INFO] [1793353448.635026555] [gz_ros_control]: The position_proportional_gain has been set to: 0.1
+[gazebo-1] [INFO] [1793353448.635275107] [gz_ros_control]: Loading joint: joint1
+[gazebo-1] [INFO] [1793353448.635399503] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1793353448.635559656] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.635683912] [gz_ros_control]: 			 found initial value: 0.000000
+[gazebo-1] [INFO] [1793353448.635793229] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1793353448.635890855] [gz_ros_control]: 		 effort
+[gazebo-1] [INFO] [1793353448.635993259] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1793353448.636154114] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.636344174] [gz_ros_control]: Loading joint: joint2
+[gazebo-1] [INFO] [1793353448.636463140] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1793353448.636558080] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.636643732] [gz_ros_control]: 			 found initial value: 0.000000
+[gazebo-1] [INFO] [1793353448.636728513] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1793353448.636875993] [gz_ros_control]: 		 effort
+[gazebo-1] [INFO] [1793353448.637013664] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1793353448.637165151] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.637289968] [gz_ros_control]: Loading joint: joint3
+[gazebo-1] [INFO] [1793353448.637391631] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1793353448.637490959] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.637589967] [gz_ros_control]: 			 found initial value: 0.000000
+[gazebo-1] [INFO] [1793353448.637686199] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1793353448.637846544] [gz_ros_control]: 		 effort
+[gazebo-1] [INFO] [1793353448.637974917] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1793353448.638061291] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.638144980] [gz_ros_control]: Loading joint: joint4
+[gazebo-1] [INFO] [1793353448.638231434] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1793353448.638374114] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.638381889] [gz_ros_control]: 			 found initial value: 0.000000
+[gazebo-1] [INFO] [1793353448.638386929] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1793353448.638390155] [gz_ros_control]: 		 effort
+[gazebo-1] [INFO] [1793353448.638393441] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1793353448.638396366] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.638410032] [gz_ros_control]: Loading joint: joint5
+[gazebo-1] [INFO] [1793353448.638413429] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1793353448.638416124] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.638423378] [gz_ros_control]: 			 found initial value: 0.000000
+[gazebo-1] [INFO] [1793353448.638426454] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1793353448.638429169] [gz_ros_control]: 		 effort
+[gazebo-1] [INFO] [1793353448.638431944] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1793353448.638434489] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.638441262] [gz_ros_control]: Loading joint: joint6
+[gazebo-1] [INFO] [1793353448.638444047] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1793353448.638446782] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.638449277] [gz_ros_control]: 			 found initial value: 0.000000
+[gazebo-1] [INFO] [1793353448.638452283] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1793353448.638455148] [gz_ros_control]: 		 effort
+[gazebo-1] [INFO] [1793353448.638457923] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1793353448.638460498] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.638491557] [gz_ros_control]: Loading joint: gripper_left_finger_joint
+[gazebo-1] [INFO] [1793353448.638516434] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1793353448.638519710] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.638522816] [gz_ros_control]: 			 found initial value: 0.000000
+[gazebo-1] [INFO] [1793353448.638527074] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1793353448.638530311] [gz_ros_control]: 		 effort
+[gazebo-1] [INFO] [1793353448.638533406] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1793353448.638536312] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.638542934] [gz_ros_control]: Loading joint: gripper_right_finger_joint
+[gazebo-1] [INFO] [1793353448.638554526] [gz_ros_control]: 	State:
+[gazebo-1] [INFO] [1793353448.638559857] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.638563043] [gz_ros_control]: 			 found initial value: 0.000000
+[gazebo-1] [INFO] [1793353448.638567211] [gz_ros_control]: 		 velocity
+[gazebo-1] [INFO] [1793353448.638570276] [gz_ros_control]: 		 effort
+[gazebo-1] [INFO] [1793353448.638573302] [gz_ros_control]: 	Command:
+[gazebo-1] [INFO] [1793353448.638576147] [gz_ros_control]: 		 position
+[gazebo-1] [INFO] [1793353448.638615682] [gz_ros_control]: Loading sensor: imu_sensor
+[gazebo-1] [INFO] [1793353448.638623267] [gz_ros_control]: 	State:
+[gazebo-1] [WARN] [1793353448.638627575] [gz_ros_control]: IMU sensor 'imu_sensor' not found in hardware_info, skipping.
+[gazebo-1] [INFO] [1793353448.638714670] [gz_ros_control]: Initialize hardware 'GazeboSimSystem' 
+[gazebo-1] [INFO] [1793353448.647881409] [gz_ros_control]: Successful initialization of hardware 'GazeboSimSystem'
+[gazebo-1] [INFO] [1793353448.648146743] [controller_manager]: Activating component 'GazeboSimSystem'.
+[gazebo-1] [INFO] [1793353448.648194383] [resource_manager]: 'configure' hardware 'GazeboSimSystem' 
+[gazebo-1] [INFO] [1793353448.648202689] [gz_ros_control]: System Successfully configured!
+[gazebo-1] [INFO] [1793353448.648208169] [resource_manager]: Successful 'configure' of hardware 'GazeboSimSystem'
+[gazebo-1] [INFO] [1793353448.648217236] [resource_manager]: 'activate' hardware 'GazeboSimSystem' 
+[gazebo-1] [INFO] [1793353448.648231634] [resource_manager]: Successful 'activate' of hardware 'GazeboSimSystem'
+[gazebo-1] [WARN] [1793353448.648348205] [controller_manager]: Component 'GazeboSimSystem' does not have read or write statistics initialized, skipping registration.
+[gazebo-1] [INFO] [1793353448.648364265] [controller_manager]: Resource Manager has been successfully initialized. Starting Controller Manager services...
+[spawner-5] [INFO] [1793353448.701836984] [spawner_joint_state_broadcaster]: waiting for service /controller_manager/list_controllers to become available...
+[gazebo-1] (2026-10-30 12:44:08.794) [info] [RenderEngineManager.cc:513] [GUI] Loading plugin [gz-rendering-ogre2]
+[gazebo-1] libEGL warning: failed to open /dev/dri/renderD128: Permission denied
+[gazebo-1] 
+[gazebo-1] libEGL warning: failed to open /dev/dri/card0: Permission denied
+[gazebo-1] 
+[gazebo-1] (2026-10-30 12:44:09.077) [info] [CameraTracking.cc:204] [GUI] Move to service on [/gui/move_to]
+[gazebo-1] (2026-10-30 12:44:09.077) [info] [CameraTracking.cc:211] [GUI] Tracking topic on [/gui/track]
+[gazebo-1] (2026-10-30 12:44:09.077) [info] [CameraTracking.cc:218] [GUI] Tracking status topic on [/gui/currently_tracked]
+[gazebo-1] (2026-10-30 12:44:09.077) [info] [CameraTracking.cc:226] [GUI] Move to pose service on [/gui/move_to/pose]
+[gazebo-1] (2026-10-30 12:44:09.078) [info] [CameraTracking.cc:233] [GUI] Camera pose topic advertised on [/gui/camera/pose]
+[gazebo-1] [INFO] [1793353449.205394489] [controller_manager]: Loading controller : 'joint_state_broadcaster' of type 'joint_state_broadcaster/JointStateBroadcaster'
+[gazebo-1] [INFO] [1793353449.205478699] [controller_manager]: Loading controller 'joint_state_broadcaster'
+[gazebo-1] [INFO] [1793353449.207528853] [controller_manager]: Controller 'joint_state_broadcaster' node arguments: '--ros-args --param use_sim_time:=true'
+[spawner-5] [INFO] [1793353449.219602009] [spawner_joint_state_broadcaster]: Loaded joint_state_broadcaster
+[gazebo-1] [INFO] [1793353449.221169833] [controller_manager]: Configuring controller: 'joint_state_broadcaster'
+[gazebo-1] [INFO] [1793353449.221530768] [joint_state_broadcaster]: 'joints' or 'interfaces' parameter is empty. Will try to publish all available state interfaces of the URDF joints.
+[gazebo-1] [INFO] [1793353449.227496714] [controller_manager]: Activating controllers: [ joint_state_broadcaster ]
+[gazebo-1] (2026-10-30 12:44:10.460) [warning] [Sensor.cc:189] //sensor/gz_frame_id is deprecated. Please use //sensor/frame_id instead. 
+[gazebo-1] (2026-10-30 12:44:10.460) [info] [RenderEngineManager.cc:513] Loading plugin [gz-rendering-ogre2]
+[gazebo-1] (2026-10-30 12:44:10.461) [info] [SceneBroadcaster.cc:654] Serving scene information on [/world/rk6_world/scene/info]
+[gazebo-1] (2026-10-30 12:44:10.461) [info] [SceneBroadcaster.cc:663] Serving graph information on [/world/rk6_world/scene/graph]
+[gazebo-1] (2026-10-30 12:44:10.461) [info] [SceneBroadcaster.cc:674] Serving full state on [/world/rk6_world/state]
+[gazebo-1] (2026-10-30 12:44:10.461) [info] [SceneBroadcaster.cc:683] Serving full state (async) on [/world/rk6_world/state_async]
+[gazebo-1] (2026-10-30 12:44:10.462) [info] [SceneBroadcaster.cc:691] Publishing scene information on [/world/rk6_world/scene/info]
+[gazebo-1] (2026-10-30 12:44:10.462) [info] [SceneBroadcaster.cc:700] Publishing entity deletions on [/world/rk6_world/scene/deletion]
+[gazebo-1] (2026-10-30 12:44:10.462) [info] [SceneBroadcaster.cc:709] Publishing state changes on [/world/rk6_world/state]
+[gazebo-1] (2026-10-30 12:44:10.462) [info] [SceneBroadcaster.cc:720] Publishing pose messages on [/world/rk6_world/pose/info]
+[gazebo-1] (2026-10-30 12:44:10.462) [info] [SceneBroadcaster.cc:731] Publishing dynamic pose messages on [/world/rk6_world/dynamic_pose/info]
+[gazebo-1] [WARN] [1793353450.488836565] [gz_ros_control]:  Desired controller update period (0.01 s) is slower than the gazebo simulation period (0.001 s).
+[gazebo-1] [INFO] [1793353450.490138825] [controller_manager]: Requested controller switch from non-realtime loop
+[gazebo-1] [INFO] [1793353450.490514668] [controller_manager]: Successfully switched controllers!
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="wrist_camera"]/gz_frame_id:<data-string>:L474]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="imu_sensor"]/gz_frame_id:<data-string>:L482]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="wrist_camera"]/gz_frame_id:<data-string>:L474]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="imu_sensor"]/gz_frame_id:<data-string>:L482]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] libEGL warning: failed to open /dev/dri/renderD128: Permission denied
+[gazebo-1] 
+[gazebo-1] libEGL warning: failed to open /dev/dri/card0: Permission denied
+[gazebo-1] 
+[gazebo-1] (2026-10-30 12:44:11.321) [warning] [Sensor.cc:189] //sensor/gz_frame_id is deprecated. Please use //sensor/frame_id instead. 
+[gazebo-1] (2026-10-30 12:44:11.322) [warning] [Ogre2Camera.cc:423] Ogre2Camera::SetVisibilityMask: Mask bits c0000000 are set but will be ignored as they conflict with the reserved bits used internally by the ogre2 backend.
+[spawner-5] [INFO] [1793353451.493420342] [spawner_joint_state_broadcaster]: Configured and activated joint_state_broadcaster
+[INFO] [spawner-5]: process has finished cleanly [pid 69280]
+[INFO] [spawner-6]: process started with pid [69400]
+[spawner-6] [INFO] [1793353452.001508045] [spawner_arm_controller]: waiting for service /controller_manager/list_controllers to become available...
+[spawner-6] [INFO] [1793353452.257672852] [spawner_arm_controller]: Setting controller param "params_file" to "['/home/kullanici/rt_ws_v2/install/rk6_description/share/rk6_description/config/rk6_controllers.yaml']" for arm_controller
+[gazebo-1] [INFO] [1793353452.262502764] [controller_manager]: Loading controller : 'arm_controller' of type 'joint_trajectory_controller/JointTrajectoryController'
+[gazebo-1] [INFO] [1793353452.262552268] [controller_manager]: Loading controller 'arm_controller'
+[gazebo-1] [INFO] [1793353452.265917532] [controller_manager]: Controller 'arm_controller' node arguments: '--ros-args --params-file /home/kullanici/rt_ws_v2/install/rk6_description/share/rk6_description/config/rk6_controllers.yaml --param use_sim_time:=true'
+[spawner-6] [INFO] [1793353452.292053713] [spawner_arm_controller]: Loaded arm_controller
+[gazebo-1] [INFO] [1793353452.293631761] [controller_manager]: Configuring controller: 'arm_controller'
+[gazebo-1] [INFO] [1793353452.293955625] [arm_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[gazebo-1] [INFO] [1793353452.294014076] [arm_controller]: Command interfaces are [position] and state interfaces are [position velocity].
+[gazebo-1] [INFO] [1793353452.294076395] [arm_controller]: Using 'splines' interpolation method.
+[gazebo-1] [INFO] [1793353452.304160932] [arm_controller]: Action status changes will be monitored at 20.00 Hz.
+[gazebo-1] [INFO] [1793353452.314760578] [arm_controller]: Setting initial scaling factor to 1.000000
+[gazebo-1] [INFO] [1793353452.314807347] [arm_controller]: No scaling interface set. This controller will not read speed scaling from the hardware.
+[gazebo-1] [INFO] [1793353452.323732292] [controller_manager]: Activating controllers: [ arm_controller ]
+[gazebo-1] [INFO] [1793353452.331132283] [controller_manager]: Requested controller switch from non-realtime loop
+[gazebo-1] [INFO] [1793353452.331415741] [controller_manager]: Successfully switched controllers!
+[spawner-6] [INFO] [1793353452.342200146] [spawner_arm_controller]: Configured and activated arm_controller
+[spawner-6] [INFO] [1793353452.346037085] [spawner_arm_controller]: Setting controller param "params_file" to "['/home/kullanici/rt_ws_v2/install/rk6_description/share/rk6_description/config/rk6_controllers.yaml']" for gripper_controller
+[gazebo-1] [INFO] [1793353452.351433297] [controller_manager]: Loading controller : 'gripper_controller' of type 'joint_trajectory_controller/JointTrajectoryController'
+[gazebo-1] [INFO] [1793353452.351537925] [controller_manager]: Loading controller 'gripper_controller'
+[gazebo-1] [INFO] [1793353452.351900052] [controller_manager]: Controller 'gripper_controller' node arguments: '--ros-args --params-file /home/kullanici/rt_ws_v2/install/rk6_description/share/rk6_description/config/rk6_controllers.yaml --param use_sim_time:=true'
+[spawner-6] [INFO] [1793353452.372426151] [spawner_arm_controller]: Loaded gripper_controller
+[gazebo-1] [INFO] [1793353452.372746770] [controller_manager]: Configuring controller: 'gripper_controller'
+[gazebo-1] [INFO] [1793353452.372848312] [gripper_controller]: No specific joint names are used for command interfaces. Using 'joints' parameter.
+[gazebo-1] [INFO] [1793353452.372895863] [gripper_controller]: Command interfaces are [position] and state interfaces are [position velocity].
+[gazebo-1] [INFO] [1793353452.372907805] [gripper_controller]: Using 'splines' interpolation method.
+[gazebo-1] [INFO] [1793353452.374331951] [gripper_controller]: Action status changes will be monitored at 20.00 Hz.
+[gazebo-1] [INFO] [1793353452.379049676] [gripper_controller]: Setting initial scaling factor to 1.000000
+[gazebo-1] [INFO] [1793353452.379095362] [gripper_controller]: No scaling interface set. This controller will not read speed scaling from the hardware.
+[gazebo-1] [INFO] [1793353452.381856771] [controller_manager]: Activating controllers: [ gripper_controller ]
+[gazebo-1] [INFO] [1793353452.391185885] [controller_manager]: Requested controller switch from non-realtime loop
+[gazebo-1] [INFO] [1793353452.391367249] [controller_manager]: Successfully switched controllers!
+[spawner-6] [INFO] [1793353452.402289449] [spawner_arm_controller]: Configured and activated gripper_controller
+[INFO] [spawner-6]: process has finished cleanly [pid 69400]
+[INFO] [scan_and_stack-7]: process started with pid [69437]
+[gazebo-1] [INFO] [1793353456.543708230] [gripper_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353456.543859387] [gripper_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353458.038809165] [gripper_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353458.875954625] [scan_and_stack]:   gripper kapat (tarama) (0.000 m): OK
+[scan_and_stack-7] [INFO] [1793353458.883679537] [scan_and_stack]: Tarama: 30 durak, halka 1: r 0.14 m z 0.125 m egim 10 der, halka 2: r 0.14 m z 0.18 m egim 30 der
+[gazebo-1] [INFO] [1793353459.602090519] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353459.602142577] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353462.605986274] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353462.671620744] [scan_and_stack]:   tarama 1/30 (r 0.14, -125.0 derece): (-0.080, -0.115, 0.125) e_IK=0.02 mm -> OK
+[gazebo-1] [INFO] [1793353463.881395345] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353463.881461621] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353465.081094941] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353465.104117376] [scan_and_stack]:   tarama 2/30 (r 0.14, -115.0 derece): (-0.059, -0.127, 0.125) e_IK=0.03 mm -> OK
+[gazebo-1] [INFO] [1793353466.317647556] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353466.317693644] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353467.512315669] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353467.529792630] [scan_and_stack]:   tarama 3/30 (r 0.14, -100.0 derece): (-0.024, -0.138, 0.125) e_IK=0.05 mm -> OK
+[gazebo-1] [INFO] [1793353468.732991462] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353468.733046096] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353469.929426797] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353469.937875803] [scan_and_stack]:   tarama 4/30 (r 0.14, -80.0 derece): (0.024, -0.138, 0.125) e_IK=0.07 mm -> OK
+[gazebo-1] [INFO] [1793353471.179840565] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353471.179939598] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353472.371839408] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353472.387691988] [scan_and_stack]:   tarama 5/30 (r 0.14, -60.0 derece): (0.070, -0.121, 0.125) e_IK=0.07 mm -> OK
+[gazebo-1] [INFO] [1793353473.676830927] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353473.676887154] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353474.874409027] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353474.895086074] [scan_and_stack]:   tarama 6/30 (r 0.14, -40.0 derece): (0.107, -0.090, 0.125) e_IK=0.07 mm -> OK
+[gazebo-1] [INFO] [1793353476.083441114] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353476.083498813] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353477.279569831] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353477.300760202] [scan_and_stack]:   tarama 7/30 (r 0.14, -20.0 derece): (0.132, -0.048, 0.125) e_IK=0.07 mm -> OK
+[gazebo-1] [INFO] [1793353478.601217496] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353478.601273382] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353479.793370924] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353479.815947388] [scan_and_stack]:   tarama 8/30 (r 0.14, +0.0 derece): (0.140, 0.000, 0.125) e_IK=0.07 mm -> OK
+[gazebo-1] [INFO] [1793353480.973985752] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353480.974069611] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353482.174860574] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353482.227077252] [scan_and_stack]:   tarama 9/30 (r 0.14, +20.0 derece): (0.132, 0.048, 0.125) e_IK=0.07 mm -> OK
+[gazebo-1] [INFO] [1793353483.485375656] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353483.485445834] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353484.686797715] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353484.742667072] [scan_and_stack]:   tarama 10/30 (r 0.14, +40.0 derece): (0.107, 0.090, 0.125) e_IK=0.07 mm -> OK
+[gazebo-1] [INFO] [1793353485.929581617] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353485.929627895] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353487.127826528] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353487.145678696] [scan_and_stack]:   tarama 11/30 (r 0.14, +60.0 derece): (0.070, 0.121, 0.125) e_IK=0.07 mm -> OK
+[gazebo-1] [INFO] [1793353488.450387596] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353488.450436248] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353489.641029386] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353489.662242284] [scan_and_stack]:   tarama 12/30 (r 0.14, +80.0 derece): (0.024, 0.138, 0.125) e_IK=0.07 mm -> OK
+[gazebo-1] [INFO] [1793353490.903162685] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353490.903207530] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353492.104163730] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353492.165406866] [scan_and_stack]:   tarama 13/30 (r 0.14, +100.0 derece): (-0.024, 0.138, 0.125) e_IK=0.07 mm -> OK
+[gazebo-1] [INFO] [1793353493.443930670] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353493.444006243] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353494.637512764] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353494.673044107] [scan_and_stack]:   tarama 14/30 (r 0.14, +115.0 derece): (-0.059, 0.127, 0.125) e_IK=0.05 mm -> OK
+[gazebo-1] [INFO] [1793353495.886619242] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353495.886684726] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353497.084015593] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353497.095772880] [scan_and_stack]:   tarama 15/30 (r 0.14, +125.0 derece): (-0.080, 0.115, 0.125) e_IK=0.03 mm -> OK
+[gazebo-1] [INFO] [1793353498.301257137] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353498.301304988] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353501.300782137] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353501.325526994] [scan_and_stack]:   tarama 16/30 (r 0.14, +125.0 derece): (-0.080, 0.115, 0.180) e_IK=0.10 mm -> OK
+[gazebo-1] [INFO] [1793353502.580475960] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353502.580546073] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353503.775734347] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353503.832447624] [scan_and_stack]:   tarama 17/30 (r 0.14, +115.0 derece): (-0.059, 0.127, 0.180) e_IK=0.10 mm -> OK
+[gazebo-1] [INFO] [1793353505.092701539] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353505.092827177] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353506.286944129] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353506.321562771] [scan_and_stack]:   tarama 18/30 (r 0.14, +100.0 derece): (-0.024, 0.138, 0.180) e_IK=0.10 mm -> OK
+[gazebo-1] [INFO] [1793353507.530501538] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353507.530574416] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353508.732888848] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353508.812757187] [scan_and_stack]:   tarama 19/30 (r 0.14, +80.0 derece): (0.024, 0.138, 0.180) e_IK=0.08 mm -> OK
+[scan_and_stack-7] [INFO] [1793353509.181349614] [scan_and_stack]:     red: (0.171, 0.272) yaw +33.1 derece
+[gazebo-1] [INFO] [1793353510.031013608] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353510.031069333] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353511.225029638] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353511.271310447] [scan_and_stack]:   tarama 20/30 (r 0.14, +60.0 derece): (0.070, 0.121, 0.180) e_IK=0.08 mm -> OK
+[scan_and_stack-7] [INFO] [1793353511.746263779] [scan_and_stack]:     red: (0.170, 0.272) yaw +32.7 derece
+[gazebo-1] [INFO] [1793353512.621574377] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353512.621641544] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353513.822431612] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353513.878900542] [scan_and_stack]:   tarama 21/30 (r 0.14, +40.0 derece): (0.107, 0.090, 0.180) e_IK=0.08 mm -> OK
+[scan_and_stack-7] [INFO] [1793353514.286424706] [scan_and_stack]:     red: (0.170, 0.272) yaw +36.8 derece
+[gazebo-1] [INFO] [1793353515.144376411] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353515.144422619] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353516.347387632] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353516.433649244] [scan_and_stack]:   tarama 22/30 (r 0.14, +20.0 derece): (0.132, 0.048, 0.180) e_IK=0.08 mm -> OK
+[gazebo-1] [INFO] [1793353517.703188411] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353517.703234799] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353518.904099909] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353518.963509020] [scan_and_stack]:   tarama 23/30 (r 0.14, +0.0 derece): (0.140, 0.000, 0.180) e_IK=0.08 mm -> OK
+[gazebo-1] [INFO] [1793353520.152239614] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353520.152306741] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353521.348581881] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353521.390572986] [scan_and_stack]:   tarama 24/30 (r 0.14, -20.0 derece): (0.132, -0.048, 0.180) e_IK=0.08 mm -> OK
+[scan_and_stack-7] [INFO] [1793353521.787218477] [scan_and_stack]:     blue: (0.311, -0.149) yaw -30.1 derece
+[gazebo-1] [INFO] [1793353522.644586644] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353522.644656697] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353523.838621047] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353523.851243529] [scan_and_stack]:   tarama 25/30 (r 0.14, -40.0 derece): (0.107, -0.090, 0.180) e_IK=0.08 mm -> OK
+[scan_and_stack-7] [INFO] [1793353524.230624843] [scan_and_stack]:     blue: (0.312, -0.149) yaw -35.1 derece
+[gazebo-1] [INFO] [1793353525.088505695] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353525.088580276] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353526.296332682] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353526.358275298] [scan_and_stack]:   tarama 26/30 (r 0.14, -60.0 derece): (0.070, -0.121, 0.180) e_IK=0.08 mm -> OK
+[gazebo-1] [INFO] [1793353527.584421232] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353527.584504419] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353528.782786392] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353528.795608253] [scan_and_stack]:   tarama 27/30 (r 0.14, -80.0 derece): (0.024, -0.138, 0.180) e_IK=0.08 mm -> OK
+[scan_and_stack-7] [INFO] [1793353529.161149006] [scan_and_stack]:     green: (-0.061, -0.291) yaw +10.0 derece
+[gazebo-1] [INFO] [1793353529.991754570] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353529.991844441] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353531.189033471] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353531.241608139] [scan_and_stack]:   tarama 28/30 (r 0.14, -100.0 derece): (-0.024, -0.138, 0.180) e_IK=0.08 mm -> OK
+[scan_and_stack-7] [INFO] [1793353531.671906935] [scan_and_stack]:     green: (-0.061, -0.291) yaw +11.4 derece
+[gazebo-1] [INFO] [1793353532.517225276] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353532.517273457] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353533.709081937] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353533.732694804] [scan_and_stack]:   tarama 29/30 (r 0.14, -115.0 derece): (-0.059, -0.127, 0.180) e_IK=0.10 mm -> OK
+[scan_and_stack-7] [INFO] [1793353534.097422949] [scan_and_stack]:     green: (-0.061, -0.291) yaw +12.6 derece
+[gazebo-1] [INFO] [1793353534.962641446] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353534.962695358] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353536.161803427] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353536.168338477] [scan_and_stack]:   tarama 30/30 (r 0.14, -125.0 derece): (-0.080, -0.115, 0.180) e_IK=0.08 mm -> OK
+[scan_and_stack-7] [INFO] [1793353536.530800546] [scan_and_stack]:     green: (-0.060, -0.292) yaw +16.5 derece
+[scan_and_stack-7] [INFO] [1793353536.534400304] [scan_and_stack]: Bulunan kup sayisi: 3
+[scan_and_stack-7] [INFO] [1793353536.546543669] [scan_and_stack]:   green: (-0.061, -0.291) yaw +11.4 derece (4 goruntude)
+[scan_and_stack-7] [INFO] [1793353536.558109276] [scan_and_stack]:   red  : (0.170, 0.272) yaw +32.7 derece (3 goruntude)
+[scan_and_stack-7] [INFO] [1793353536.568317250] [scan_and_stack]:   blue : (0.311, -0.149) yaw -30.1 derece (2 goruntude)
+[scan_and_stack-7] [INFO] [1793353536.569720994] [scan_and_stack]: [Kat 1] red kup (0.170, 0.272) -> kule
+[gazebo-1] [INFO] [1793353538.470946562] [gripper_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353538.471009842] [gripper_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353539.971709965] [gripper_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353540.557678983] [scan_and_stack]:   gripper ac (0.024 m): OK
+[gazebo-1] [INFO] [1793353540.558167238] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353540.558225098] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353543.741834029] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353543.773586624] [scan_and_stack]:   kupun ustu: (0.170, 0.272, 0.097) e_IK=0.00 mm -> OK
+[scan_and_stack-7] [INFO] [1793353544.278701946] [scan_and_stack]:   yeniden bakis: (0.170, 0.272) -> (0.169, 0.269), kayma 3.5 mm, yaw +32.7 -> +20.1
+[gazebo-1] [INFO] [1793353545.901017818] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353545.901066761] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353547.396841947] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353547.412894196] [scan_and_stack]:   kupun ustu (duzeltildi): (0.169, 0.269, 0.097) e_IK=0.00 mm -> OK
+[gazebo-1] [INFO] [1793353547.431215603] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353547.431281468] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353549.430765730] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353549.454302577] [scan_and_stack]:   inis: -> (0.169, 0.269, 0.017) OK
+[gazebo-1] [INFO] [1793353549.454756202] [gripper_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353549.454819181] [gripper_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353550.950776307] [gripper_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353551.470851233] [scan_and_stack]:   gripper kapat (0.006 m): OK
+[gazebo-1] [INFO] [1793353551.500624028] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353551.500717796] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353553.495676233] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353553.558761826] [scan_and_stack]:   kaldir: -> (0.169, 0.269, 0.097) OK
+[scan_and_stack-7] [INFO] [1793353553.572918364] [scan_and_stack]:   parmaklar [0.0151 0.0149] m -> nesne tutuluyor
+[gazebo-1] [INFO] [1793353553.578756289] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353553.578830179] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353555.583076442] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353555.646785527] [scan_and_stack]:   tasima yuksekligi: -> (0.149, 0.237, 0.097) OK
+[scan_and_stack-7] [INFO] [1793353558.046572128] [scan_and_stack]:   kup kaymasi -2.0 mm -> birakma hedefi (0.250, 0.002)
+[gazebo-1] [INFO] [1793353560.423234457] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353560.423294792] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353563.430245615] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353563.484960654] [scan_and_stack]:   kule ustu: (0.250, 0.002, 0.066) e_IK=0.01 mm -> OK
+[gazebo-1] [INFO] [1793353563.490570048] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353563.490614002] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353566.501628067] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353566.556347641] [scan_and_stack]:   birakma inisi: -> (0.250, 0.002, 0.021) OK
+[gazebo-1] [INFO] [1793353566.556786289] [gripper_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353566.556845391] [gripper_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353567.552738565] [gripper_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353568.074577328] [scan_and_stack]:   gripper birak (0.021 m): OK
+[gazebo-1] [INFO] [1793353568.080878401] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353568.080968772] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353570.075455615] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353570.107332883] [scan_and_stack]:   geri cekil: -> (0.250, 0.002, 0.066) OK
+[scan_and_stack-7] [INFO] [1793353570.109883867] [scan_and_stack]: [Kat 2] green kup (-0.061, -0.291) -> kule
+[gazebo-1] [INFO] [1793353571.742119593] [gripper_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353571.742209013] [gripper_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353573.238096439] [gripper_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353573.770748417] [scan_and_stack]:   gripper ac (0.024 m): OK
+[gazebo-1] [INFO] [1793353573.771291163] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353573.771326390] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353576.789332882] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353576.855899616] [scan_and_stack]:   kupun ustu: (-0.061, -0.291, 0.097) e_IK=0.00 mm -> OK
+[scan_and_stack-7] [INFO] [1793353577.420307920] [scan_and_stack]:   yeniden bakis: (-0.061, -0.291) -> (-0.060, -0.288), kayma 2.9 mm, yaw +11.4 -> +9.7
+[gazebo-1] [INFO] [1793353579.053897729] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353579.053943606] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353580.554063288] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353580.571758975] [scan_and_stack]:   kupun ustu (duzeltildi): (-0.060, -0.288, 0.097) e_IK=0.00 mm -> OK
+[gazebo-1] [INFO] [1793353580.580840857] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353580.580884830] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353582.577759964] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353582.596583535] [scan_and_stack]:   inis: -> (-0.060, -0.288, 0.017) OK
+[gazebo-1] [INFO] [1793353582.597480647] [gripper_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353582.597564636] [gripper_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353584.097785144] [gripper_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353584.611363450] [scan_and_stack]:   gripper kapat (0.006 m): OK
+[gazebo-1] [INFO] [1793353584.618799600] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353584.618882738] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353586.621040657] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353586.692429782] [scan_and_stack]:   kaldir: -> (-0.060, -0.288, 0.097) OK
+[scan_and_stack-7] [INFO] [1793353586.712827460] [scan_and_stack]:   parmaklar [0.0117 0.0183] m -> nesne tutuluyor
+[gazebo-1] [INFO] [1793353586.720804115] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353586.720892022] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353588.716473476] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353588.731304584] [scan_and_stack]:   tasima yuksekligi: -> (-0.057, -0.274, 0.097) OK
+[scan_and_stack-7] [INFO] [1793353591.131136243] [scan_and_stack]:   kup kaymasi -3.6 mm -> birakma hedefi (0.250, 0.004)
+[gazebo-1] [INFO] [1793353593.548937469] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353593.549002652] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353596.559427638] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353596.629233541] [scan_and_stack]:   kule ustu: (0.250, 0.004, 0.096) e_IK=0.04 mm -> OK
+[gazebo-1] [INFO] [1793353596.644147580] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353596.644339545] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353599.644850234] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353599.711608034] [scan_and_stack]:   birakma inisi: -> (0.250, 0.004, 0.051) OK
+[gazebo-1] [INFO] [1793353599.712659055] [gripper_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353599.712746601] [gripper_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353600.706748907] [gripper_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353601.218664147] [scan_and_stack]:   gripper birak (0.021 m): OK
+[gazebo-1] [INFO] [1793353601.224919016] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353601.224999779] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353603.237838214] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353603.299251928] [scan_and_stack]:   geri cekil: -> (0.250, 0.004, 0.096) OK
+[scan_and_stack-7] [INFO] [1793353603.299479510] [scan_and_stack]: [Kat 3] blue kup (0.311, -0.149) -> kule
+[gazebo-1] [INFO] [1793353605.012498303] [gripper_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353605.012550001] [gripper_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353606.507380727] [gripper_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353607.045460560] [scan_and_stack]:   gripper ac (0.024 m): OK
+[gazebo-1] [INFO] [1793353607.046357005] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353607.046428982] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353610.041418354] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353610.054935950] [scan_and_stack]:   kupun ustu: (0.311, -0.149, 0.097) e_IK=0.00 mm -> OK
+[scan_and_stack-7] [INFO] [1793353610.621705132] [scan_and_stack]:   yeniden bakis: (0.311, -0.149) -> (0.309, -0.149), kayma 2.8 mm, yaw -30.1 -> -35.0
+[gazebo-1] [INFO] [1793353612.256061379] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353612.256110212] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353613.757949279] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353613.822649667] [scan_and_stack]:   kupun ustu (duzeltildi): (0.309, -0.149, 0.097) e_IK=0.00 mm -> OK
+[gazebo-1] [INFO] [1793353613.833339793] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353613.833397312] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353615.833882483] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353615.899247117] [scan_and_stack]:   inis: -> (0.309, -0.149, 0.017) OK
+[gazebo-1] [INFO] [1793353615.899714117] [gripper_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353615.899749064] [gripper_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353617.400464067] [gripper_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353617.952447204] [scan_and_stack]:   gripper kapat (0.006 m): OK
+[gazebo-1] [INFO] [1793353617.966088639] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353617.966185894] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353619.965221656] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353619.982777858] [scan_and_stack]:   kaldir: -> (0.309, -0.149, 0.097) OK
+[scan_and_stack-7] [INFO] [1793353620.035290586] [scan_and_stack]:   parmaklar [0.0131 0.0169] m -> nesne tutuluyor
+[gazebo-1] [INFO] [1793353620.046045818] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353620.046124247] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353622.049154425] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353622.112875750] [scan_and_stack]:   tasima yuksekligi: -> (0.252, -0.122, 0.107) OK
+[scan_and_stack-7] [INFO] [1793353624.504214384] [scan_and_stack]:   kup kaymasi -2.5 mm -> birakma hedefi (0.250, 0.003)
+[gazebo-1] [INFO] [1793353626.915831335] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353626.915881450] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353629.915069520] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353629.950566618] [scan_and_stack]:   kule ustu: (0.250, 0.003, 0.126) e_IK=0.02 mm -> OK
+[gazebo-1] [INFO] [1793353629.957808610] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353629.957853154] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353632.958661871] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353633.016587092] [scan_and_stack]:   birakma inisi: -> (0.250, 0.003, 0.081) OK
+[gazebo-1] [INFO] [1793353633.017164708] [gripper_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353633.017279235] [gripper_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353634.018572442] [gripper_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353634.592440761] [scan_and_stack]:   gripper birak (0.021 m): OK
+[gazebo-1] [INFO] [1793353634.611884679] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353634.611947789] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353636.613760990] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353636.694438500] [scan_and_stack]:   geri cekil: -> (0.250, 0.003, 0.126) OK
+[gazebo-1] [INFO] [1793353636.694965604] [arm_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353636.695006171] [arm_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353639.697758404] [arm_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353639.759315769] [scan_and_stack]: Home: OK
+[gazebo-1] [INFO] [1793353639.759744462] [gripper_controller]: Received new action goal
+[gazebo-1] [INFO] [1793353639.759792894] [gripper_controller]: Accepted new action goal
+[gazebo-1] [INFO] [1793353641.259706843] [gripper_controller]: Goal reached, success!
+[scan_and_stack-7] [INFO] [1793353641.773462403] [scan_and_stack]:   gripper kapat (home) (0.000 m): OK
+[scan_and_stack-7] [INFO] [1793353641.782158279] [scan_and_stack]: Tamamlandi: kule 3 kat. Tarama goruntuleri: /home/kullanici/rk6_results/scan
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="wrist_camera"]/gz_frame_id:<data-string>:L474]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="imu_sensor"]/gz_frame_id:<data-string>:L482]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="wrist_camera"]/gz_frame_id:<data-string>:L474]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="imu_sensor"]/gz_frame_id:<data-string>:L482]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="wrist_camera"]/gz_frame_id:<data-string>:L474]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[gazebo-1] [1;33mWarning [Utils.cc:132][0m [/sdf/model[@name="rk6"]/link[@name="link6"]/sensor[@name="imu_sensor"]/gz_frame_id:<data-string>:L482]: XML Element[gz_frame_id], child of element[sensor], not defined in SDF. Copying[gz_frame_id] as children of [sensor].
+[scan_and_stack-7] The following exception was never retrieved: cannot use Destroyable because destruction was requested
+[INFO] [scan_and_stack-7]: process has finished cleanly [pid 69437]

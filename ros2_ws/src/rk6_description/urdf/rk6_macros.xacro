@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!-- rk6 yardimci makrolari: malzemeler, silindir govde (visual+collision), silindir ataletleri, mesh link govdesi -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Renkler (her link farkli renk) -->
+  <material name="rk6_grey">   <color rgba="0.35 0.35 0.38 1.0"/></material>
+  <material name="rk6_orange"> <color rgba="1.00 0.50 0.05 1.0"/></material>
+  <material name="rk6_blue">   <color rgba="0.10 0.35 0.85 1.0"/></material>
+  <material name="rk6_green">  <color rgba="0.15 0.70 0.30 1.0"/></material>
+  <material name="rk6_yellow"> <color rgba="0.95 0.85 0.10 1.0"/></material>
+  <material name="rk6_purple"> <color rgba="0.55 0.25 0.75 1.0"/></material>
+  <material name="rk6_red">    <color rgba="0.85 0.15 0.15 1.0"/></material>
+  <material name="rk6_black">  <color rgba="0.05 0.05 0.05 1.0"/></material>
+
+  <!-- Silindir parcasi: ayni geometri hem visual hem collision olarak -->
+  <xacro:macro name="cyl_part" params="r l xyz rpy material">
+    <visual>
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+      <geometry><cylinder radius="${r}" length="${l}"/></geometry>
+      <material name="${material}"/>
+    </visual>
+    <collision>
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+      <geometry><cylinder radius="${r}" length="${l}"/></geometry>
+    </collision>
+  </xacro:macro>
+
+  <!-- Dolu silindir ataleti (eksen: silindirin kendi z ekseni, origin rpy ile yonlendirilir)
+       Ixx = Iyy = m(3r^2 + l^2)/12 ,  Izz = m r^2 / 2 -->
+  <xacro:macro name="cyl_inertial" params="m r l xyz rpy">
+    <inertial>
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+      <mass value="${m}"/>
+      <inertia ixx="${m*(3*r*r + l*l)/12}" ixy="0" ixz="0"
+               iyy="${m*(3*r*r + l*l)/12}" iyz="0"
+               izz="${m*r*r/2}"/>
+    </inertial>
+  </xacro:macro>
+
+  <!-- Fusion mesh'li link: visual = meshes/<name>.stl (link cercevesinde),
+       collision = link bbox'ina oturan kutu (mesh DEGIL), inertial = kutu yaklasimi (rk6_mesh_props.xacro) -->
+  <xacro:macro name="mesh_link_body" params="name material m com ixx iyy izz bb_c bb_s">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><mesh filename="package://rk6_description/meshes/${name}.stl"/></geometry>
+      <material name="${material}"/>
+    </visual>
+    <collision>
+      <origin xyz="${bb_c}" rpy="0 0 0"/>
+      <geometry><box size="${bb_s}"/></geometry>
+    </collision>
+    <inertial>
+      <origin xyz="${com}" rpy="0 0 0"/>
+      <mass value="${m}"/>
+      <inertia ixx="${ixx}" ixy="0" ixz="0" iyy="${iyy}" iyz="0" izz="${izz}"/>
+    </inertial>
+  </xacro:macro>
+
+  <!-- Kucuk sabit parcalar (kamera, IMU, tool0) icin kucuk atalet -->
+  <xacro:macro name="small_inertial" params="m">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="${m}"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </xacro:macro>
+
+</robot>

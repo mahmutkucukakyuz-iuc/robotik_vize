@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+
+# colcon (ros2_ws icinde derlenirse)
+build/
+install/
+log/
+
+# view_frames ciktilari
+frames_*.gv
+frames_*.pdf
+
+# Ara / yedek dosyalar
+*.tmp
+*.bak
+*~
+
+# Editor / isletim sistemi
+.vscode/
+.idea/
+*.swp
+desktop.ini
+Thumbs.db
+.DS_Store

@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<!-- rk6 manipulasyon senaryosu dunyasi: vize dunyasiyla ayni sistemler + kolun erisim alaninda
+     zeminde duran uc kup. Kup konumlari robota verilmez; scan_and_stack bunlari bilek
+     kamerasiyla bulur. (pick_place ise bu konumlari parametre olarak bilir.)
+     Robot dogrudan zeminde (base_link = world, kaide yok; taban plakasi 0.17 x 0.17 m).
+     Kupler zeminde (base_link'te z = 0 -> ground_z = 0), dik asagi kavrama erisiminde
+     (r = 0.30..0.34 m, sinira marj > 20 derece), tarama halkasinin (r ~ 0.21..0.41) icinde,
+     tabandan ve kule noktasindan (0.25, 0) en az 0.15 m uzakta. -->
+<sdf version="1.10">
+  <world name="rk6_world">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+
+    <gravity>0 0 -9.81</gravity>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>20 20</size></plane></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 3 cm, 30 g kupler, yuksek surtunme. Konum ve aci bilerek "duzensiz". -->
+    <model name="pick_red">
+      <pose>0.17 0.27 0.015 0 0 0.35</pose>
+      <link name="link">
+        <inertial><mass>0.03</mass>
+          <inertia><ixx>4.5e-6</ixx><iyy>4.5e-6</iyy><izz>4.5e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+        </inertial>
+        <collision name="c">
+          <geometry><box><size>0.03 0.03 0.03</size></box></geometry>
+          <surface>
+            <friction><ode><mu>1.5</mu><mu2>1.5</mu2></ode></friction>
+            <contact><ode><kp>1e6</kp><kd>100</kd><min_depth>0.001</min_depth><max_vel>0.1</max_vel></ode></contact>
+          </surface>
+        </collision>
+        <visual name="v">
+          <geometry><box><size>0.03 0.03 0.03</size></box></geometry>
+          <material><ambient>0.9 0.15 0.1 1</ambient><diffuse>0.9 0.15 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="pick_blue">
+      <pose>0.31 -0.15 0.015 0 0 -0.61</pose>
+      <link name="link">
+        <inertial><mass>0.03</mass>
+          <inertia><ixx>4.5e-6</ixx><iyy>4.5e-6</iyy><izz>4.5e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+        </inertial>
+        <collision name="c">
+          <geometry><box><size>0.03 0.03 0.03</size></box></geometry>
+          <surface>
+            <friction><ode><mu>1.5</mu><mu2>1.5</mu2></ode></friction>
+            <contact><ode><kp>1e6</kp><kd>100</kd><min_depth>0.001</min_depth><max_vel>0.1</max_vel></ode></contact>
+          </surface>
+        </collision>
+        <visual name="v">
+          <geometry><box><size>0.03 0.03 0.03</size></box></geometry>
+          <material><ambient>0.1 0.3 0.9 1</ambient><diffuse>0.1 0.3 0.9 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="pick_green">
+      <pose>-0.06 -0.29 0.015 0 0 0.17</pose>
+      <link name="link">
+        <inertial><mass>0.03</mass>
+          <inertia><ixx>4.5e-6</ixx><iyy>4.5e-6</iyy><izz>4.5e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia>
+        </inertial>
+        <collision name="c">
+          <geometry><box><size>0.03 0.03 0.03</size></box></geometry>
+          <surface>
+            <friction><ode><mu>1.5</mu><mu2>1.5</mu2></ode></friction>
+            <contact><ode><kp>1e6</kp><kd>100</kd><min_depth>0.001</min_depth><max_vel>0.1</max_vel></ode></contact>
+          </surface>
+        </collision>
+        <visual name="v">
+          <geometry><box><size>0.03 0.03 0.03</size></box></geometry>
+          <material><ambient>0.15 0.75 0.2 1</ambient><diffuse>0.15 0.75 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

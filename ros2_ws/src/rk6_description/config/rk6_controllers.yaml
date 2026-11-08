@@ -1,0 +1,77 @@
+# rk6 ros2_control denetleyicileri (ROS 2 Lyrical, gz_ros2_control)
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+# /joint_states yayinlar
+joint_state_broadcaster:
+  ros__parameters:
+    use_sim_time: true
+
+# Topic : /arm_controller/joint_trajectory          (trajectory_msgs/msg/JointTrajectory)
+# Action: /arm_controller/follow_joint_trajectory   (control_msgs/action/FollowJointTrajectory)
+arm_controller:
+  ros__parameters:
+    use_sim_time: true
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: false
+    constraints:
+      stopped_velocity_tolerance: 0.05
+      goal_time: 2.0
+      joint1: {trajectory: 0.0, goal: 0.02}
+      joint2: {trajectory: 0.0, goal: 0.02}
+      joint3: {trajectory: 0.0, goal: 0.02}
+      joint4: {trajectory: 0.0, goal: 0.02}
+      joint5: {trajectory: 0.0, goal: 0.02}
+      joint6: {trajectory: 0.0, goal: 0.02}
+
+# Gripper (iki parmak, prizmatik, metre). 0 = kapali, 0.0235 = acik (Fusion export), sinir [-0.002, 0.025]
+# Action: /gripper_controller/follow_joint_trajectory
+gripper_controller:
+  ros__parameters:
+    use_sim_time: true
+    joints:
+      - gripper_left_finger_joint
+      - gripper_right_finger_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_partial_joints_goal: false
+    # Yeni yorunge son KOMUTTAN (desired) baslasin, olculen konumdan degil.
+    # Kup sikilirken parmak kupte durur (olcum ~0.012-0.024) ama komut 0.006'da kalir. Varsayilan
+    # (false) ile birakma yorungesi olculen konumdan baslar -> komut tek adimda 0.006'dan ~0.012+'ya
+    # sicrar. ros2_control (Lyrical) eklem limitleyicisi konum komutunu onceki komut
+    # +- hiz_siniri*dt (0.1 m/s * 0.01 s = 1 mm) ile sinirlar -> "Command ... out of limits"
+    # hatasi (komut 0.007'ye kirpiliyordu). true ile komut 0.006'dan surekli artar, sicrama olmaz.
+    interpolate_from_desired_state: true
+    constraints:
+      stopped_velocity_tolerance: 0.05
+      goal_time: 2.0
+      # goal: 0.0 = hedef toleransi kontrol edilmez. Nesne kavrandiginda parmaklar
+      # kapali hedefe (0) ulasamaz; bu durumda goal'un hata ile bitmesini istemiyoruz.
+      gripper_left_finger_joint: {trajectory: 0.0, goal: 0.0}
+      gripper_right_finger_joint: {trajectory: 0.0, goal: 0.0}

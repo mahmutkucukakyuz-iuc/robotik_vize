@@ -1,0 +1,37 @@
+# ros_gz_bridge yapilandirmasi (Gazebo Jetty <-> ROS 2 Lyrical)
+# Not: /joint_states ros2_control'un joint_state_broadcaster'indan gelir, burada koprulenmez.
+
+# Simulasyon saati (tum node'lar use_sim_time: true)
+- ros_topic_name: "/clock"
+  gz_topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
+
+# Bilek kamerasi
+- ros_topic_name: "/wrist_camera/image_raw"
+  gz_topic_name: "/wrist_camera/image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/wrist_camera/camera_info"
+  gz_topic_name: "/wrist_camera/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+  direction: GZ_TO_ROS
+
+# IMU (link6 uzerinde)
+- ros_topic_name: "/imu"
+  gz_topic_name: "/imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "gz.msgs.IMU"
+  direction: GZ_TO_ROS
+
+# Gazebo'nun olctugu link pozlari (ground truth). Her transform: frame_id = model (rk6),
+# child_frame_id = link adi (ornegin "rk6::tool0" veya "tool0"; ad sonekine gore eslestirin).
+- ros_topic_name: "/gz_link_poses"
+  gz_topic_name: "/rk6/pose"  # Jetty PosePublisher bu adla yayinliyor (/model/rk6/pose degil)
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "gz.msgs.Pose_V"
+  direction: GZ_TO_ROS

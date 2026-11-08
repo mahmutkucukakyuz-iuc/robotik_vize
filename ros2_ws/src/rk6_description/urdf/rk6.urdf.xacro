@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<!--
+  rk6: ogrencinin gercek kolu (Fusion 360 export). Ana Xacro dosyasi.
+  Kaynak: Fusion entegrasyon araclari (eklemler: kinematics_spec.json; mesh'ler: mesh_groups.json + mesh_birlestir.py; depoya dahil degil).
+
+  ===================== URDF KURALI =====================
+  Sifir pozda (q = 0) kol dimdik yukari bakar ve TUM link cerceveleri base_link ile paraleldir (rpy = 0).
+  Eklem eksenleri: J1, J4, J6 = z ; J2, J3, J5 = y. Pozitif q2/q3/q5 kolu +x (one) eger.
+  base_link: J1 ekseni uzerinde, taban plakasinin ALT yuzeyi (= zemin, world z = 0). x = kolun one uzandigi yon
+             (CAD'de iki on ayagin arasi; ayaklar simulasyonda yok), z yukari.
+  tool0: parmak ic yuzeylerinin (pad) ortasi, J6 ekseni uzerinde. z = yaklasma, y = parmak acilma yonu.
+
+     joint  | parent    | child  | origin xyz [m]            | axis
+     joint1 | base_link | link1  | 0   0        0.0547       | 0 0 1
+     joint2 | link1     | link2  | 0  -0.0308   0.0766       | 0 1 0
+     joint3 | link2     | link3  | 0   0.0509   0.22995      | 0 1 0
+     joint4 | link3     | link4  | 0   0.0451   0.0508       | 0 0 1
+     joint5 | link4     | link5  | 0  -0.0309   0.17915      | 0 1 0
+     joint6 | link5     | link6  | 0  -0.0351   0.0508       | 0 0 1
+     tool0_joint (fixed) link6 -> tool0 : xyz 0 0 0.15013
+
+  ===================== ESDEGER DH (standart) =====================
+  A_i = Rz(theta_i + off_i) Tz(d_i) Tx(a_i) Rx(alpha_i),  base_link_T_tool0 = A1 A2 ... A6  (sabit base/tool donusumu yok)
+
+     i | off_i  | d_i [m]  | a_i [m]  | alpha_i
+     1 |   0    |  0.1313  |  0       |  -pi/2
+     2 | -pi/2  |  0       |  0.22995 |   0
+     3 | +pi/2  |  0.0652  |  0       |  +pi/2
+     4 |   0    |  0.22995 |  0       |  -pi/2
+     5 |   0    | -0.0660  |  0       |  +pi/2
+     6 |   0    |  0.20093 |  0       |   0
+  URDF q_i = DH theta_i (offset'ler DH tablosunda). Dogrulama: 200 rastgele q icin URDF FK == DH FK (< 1e-9).
+
+  Geometrik sinif: R ⊢ R ∥ R (articulated); d5 kacikligi nedeniyle bilek kuresel degil.
+  ===============================================================
+-->
+<robot name="rk6" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find rk6_description)/urdf/rk6_macros.xacro"/>
+  <!-- otomatik uretilen kutle/atalet/carpisma kutusu degerleri -->
+  <xacro:include filename="$(find rk6_description)/urdf/rk6_mesh_props.xacro"/>
+
+  <!-- gripper:=false ile gripper'siz model uretilir -->
+  <xacro:arg name="gripper" default="true"/>
+  <xacro:property name="use_gripper" value="$(arg gripper)"/>
+
+  <!-- ========== DH uzunluklari [m] (bilgi amacli; eklem orijinleri asagida) ========== -->
+  <xacro:property name="d1" value="0.1313"/>
+  <xacro:property name="a2" value="0.22995"/>
+  <xacro:property name="d3" value="0.0652"/>
+  <xacro:property name="d4" value="0.22995"/>
+  <xacro:property name="d5" value="-0.066"/>
+  <xacro:property name="d6" value="0.20093"/>
+  <!-- link6 (J6 horn) -> tool0 -->
+  <xacro:property name="tool_z" value="0.15013"/>
+
+  <!-- Tabanin zeminden yuksekligi (world -> base_link). Robot dogrudan zeminde durur:
+       taban plakasinin alt yuzeyi (base_link z = 0) = zemin (world z = 0). Kaide/stand yok.
+       EE konumu base_link'e gore oldugu icin FK'yi etkilemez. -->
+  <xacro:property name="base_height" value="0.0"/>
+
+  <!-- Eklem limitleri (kinematics_spec.json; Fusion'da limit yok, varsayim) -->
+  <xacro:property name="vel_lim" value="2.0"/>
+  <xacro:property name="lim1" value="2.356194"/>  <!-- +-135 -->
+  <xacro:property name="lim2" value="1.570796"/>  <!-- +-90 -->
+  <xacro:property name="lim3" value="2.356194"/>  <!-- +-135 -->
+  <xacro:property name="lim4" value="1.570796"/>  <!-- +-90 -->
+  <xacro:property name="lim5" value="1.570796"/>  <!-- +-90 -->
+  <xacro:property name="lim6" value="1.570796"/>  <!-- +-90 -->
+
+  <!-- ========== world & base ========== -->
+  <link name="world"/>
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 ${base_height}" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_link">
+    <!-- Fusion: taban plakasi (alt tabla) + J1 servo govdesi. 4 ayak (Ayaklik) simulasyonda yok.
+         Carpisma kutusu 0.17 x 0.17 x 0.0577 m, alt yuzu z = 0 (zemine oturur, altina inmez). -->
+    <xacro:mesh_link_body name="base_link" material="rk6_grey" m="${base_link_m}" com="${base_link_com}"
+        ixx="${base_link_ixx}" iyy="${base_link_iyy}" izz="${base_link_izz}"
+        bb_c="${base_link_bb_c}" bb_s="${base_link_bb_s}"/>
+  </link>
+
+  <!-- ========== joint1 / link1 (taban donusu, dusey eksen) ========== -->
+  <joint name="joint1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <origin xyz="0 0 0.0547" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="${-lim1}" upper="${lim1}" effort="100.0" velocity="${vel_lim}"/>
+    <dynamics damping="0.5" friction="0.0"/>
+  </joint>
+
+  <link name="link1">
+    <!-- J1 horn, doner tabla (sol/sag parca), omuz servosu DS51150 -->
+    <xacro:mesh_link_body name="link1" material="rk6_orange" m="${link1_m}" com="${link1_com}"
+        ixx="${link1_ixx}" iyy="${link1_iyy}" izz="${link1_izz}"
+        bb_c="${link1_bb_c}" bb_s="${link1_bb_s}"/>
+  </link>
+
+  <!-- ========== joint2 / link2 (omuz) ========== -->
+  <joint name="joint2" type="revolute">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz="0 -0.0308 0.0766" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="${-lim2}" upper="${lim2}" effort="100.0" velocity="${vel_lim}"/>
+    <dynamics damping="0.5" friction="0.0"/>
+  </joint>
+
+  <link name="link2">
+    <!-- Ilk Kol (ust kol) + kapaklar, J2 horn, dirsek servosu -->
+    <xacro:mesh_link_body name="link2" material="rk6_blue" m="${link2_m}" com="${link2_com}"
+        ixx="${link2_ixx}" iyy="${link2_iyy}" izz="${link2_izz}"
+        bb_c="${link2_bb_c}" bb_s="${link2_bb_s}"/>
+  </link>
+
+  <!-- ========== joint3 / link3 (dirsek) ========== -->
+  <joint name="joint3" type="revolute">
+    <parent link="link2"/>
+    <child link="link3"/>
+    <origin xyz="0 0.0509 0.22995" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="${-lim3}" upper="${lim3}" effort="60.0" velocity="${vel_lim}"/>
+    <dynamics damping="0.5" friction="0.0"/>
+  </joint>
+
+  <link name="link3">
+    <!-- 4. Eksen alt govde, J3 horn, J4 servosu -->
+    <xacro:mesh_link_body name="link3" material="rk6_green" m="${link3_m}" com="${link3_com}"
+        ixx="${link3_ixx}" iyy="${link3_iyy}" izz="${link3_izz}"
+        bb_c="${link3_bb_c}" bb_s="${link3_bb_s}"/>
+  </link>
+
+  <!-- ========== joint4 / link4 (on kol donusu) ========== -->
+  <joint name="joint4" type="revolute">
+    <parent link="link3"/>
+    <child link="link4"/>
+    <origin xyz="0 0.0451 0.0508" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="${-lim4}" upper="${lim4}" effort="30.0" velocity="${vel_lim}"/>
+    <dynamics damping="0.3" friction="0.0"/>
+  </joint>
+
+  <link name="link4">
+    <!-- 4. Eksen ust, Ikinci Kol (on kol) + kapak, J4 horn, bilek servosu -->
+    <xacro:mesh_link_body name="link4" material="rk6_yellow" m="${link4_m}" com="${link4_com}"
+        ixx="${link4_ixx}" iyy="${link4_iyy}" izz="${link4_izz}"
+        bb_c="${link4_bb_c}" bb_s="${link4_bb_s}"/>
+  </link>
+
+  <!-- ========== joint5 / link5 (bilek egilme) ========== -->
+  <joint name="joint5" type="revolute">
+    <parent link="link4"/>
+    <child link="link5"/>
+    <origin xyz="0 -0.0309 0.17915" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="${-lim5}" upper="${lim5}" effort="30.0" velocity="${vel_lim}"/>
+    <dynamics damping="0.3" friction="0.0"/>
+  </joint>
+
+  <link name="link5">
+    <!-- 5. Eksen alt/ust parca, J5 horn, J6 servosu -->
+    <xacro:mesh_link_body name="link5" material="rk6_purple" m="${link5_m}" com="${link5_com}"
+        ixx="${link5_ixx}" iyy="${link5_iyy}" izz="${link5_izz}"
+        bb_c="${link5_bb_c}" bb_s="${link5_bb_s}"/>
+  </link>
+
+  <!-- ========== joint6 / link6 (gripper donusu) ========== -->
+  <joint name="joint6" type="revolute">
+    <parent link="link5"/>
+    <child link="link6"/>
+    <origin xyz="0 -0.0351 0.0508" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="${-lim6}" upper="${lim6}" effort="20.0" velocity="${vel_lim}"/>
+    <dynamics damping="0.2" friction="0.0"/>
+  </joint>
+
+  <link name="link6">
+    <!-- gripper tabani + govde + kapak + gripper servosu + J6 horn + disliler (dislilere sabit kabul) -->
+    <xacro:mesh_link_body name="link6" material="rk6_red" m="${link6_m}" com="${link6_com}"
+        ixx="${link6_ixx}" iyy="${link6_iyy}" izz="${link6_izz}"
+        bb_c="${link6_bb_c}" bb_s="${link6_bb_s}"/>
+  </link>
+
+  <!-- ========== uc-efektor cercevesi tool0 = DH cercevesi 6 (parmak pad ortasi) ========== -->
+  <joint name="tool0_joint" type="fixed">
+    <parent link="link6"/>
+    <child link="tool0"/>
+    <origin xyz="0 0 ${tool_z}" rpy="0 0 0"/>
+  </joint>
+
+  <link name="tool0">
+    <xacro:small_inertial m="0.01"/>
+  </link>
+
+  <!-- ========== Sensor cerceveleri ========== -->
+  <!-- Bilek kamerasi: gripper'in duz -x plaka yuzune (servonun karsi tarafi) disaridan monte
+       (kutu plakaya temas eder, ~2 mm gomulu). Kutu merkezi link6'da (-0.0256, 0, 0.075);
+       mercek (kutunun +x_camera yuzu) link6'da z = 0.085. Bakis yonu (+x camera) = link6/tool0 +z
+       (yaklasma yonu). Goruntu yatay ekseni = parmak acilma yonu (y). -->
+  <joint name="camera_joint" type="fixed">
+    <parent link="link6"/>
+    <child link="camera_link"/>
+    <origin xyz="-0.0256 0 0.075" rpy="0 ${-pi/2} 0"/>
+  </joint>
+
+  <link name="camera_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.02 0.035 0.025"/></geometry>
+      <material name="rk6_black"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.02 0.035 0.025"/></geometry>
+    </collision>
+    <xacro:small_inertial m="0.02"/>
+  </link>
+
+  <!-- IMU: link6 icinde (gripper tabani ustu), eksenleri link6 ile ayni -->
+  <joint name="imu_joint" type="fixed">
+    <parent link="link6"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0.03" rpy="0 0 0"/>
+  </joint>
+
+  <link name="imu_link">
+    <xacro:small_inertial m="0.01"/>
+  </link>
+
+  <!-- ========== Gripper parmaklari (istege bagli, DoF'a dahil degil) ========== -->
+  <xacro:if value="${use_gripper}">
+    <xacro:include filename="$(find rk6_description)/urdf/rk6_gripper.xacro"/>
+  </xacro:if>
+
+  <!-- ========== ros2_control + Gazebo ========== -->
+  <xacro:include filename="$(find rk6_description)/urdf/rk6.ros2_control.xacro"/>
+  <xacro:include filename="$(find rk6_description)/urdf/rk6.gazebo.xacro"/>
+
+</robot>

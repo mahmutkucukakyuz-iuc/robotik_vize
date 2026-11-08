@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+  rk6 gripper parmaklari (Fusion: Gripper Ucu Sol/Sag + Ara Hareketli Parca).
+  Gripper govdesi, servo ve disliler link6 mesh'inin icindedir (rk6.urdf.xacro).
+
+  Gercek mekanizma: disli + paralel kol (parmak ucu yay cizerek ama yonelimini koruyarak hareket eder).
+  Basitlestirme: her parmak link6'ya gore prizmatik (yonelim korunur, yay yerine duz cizgi).
+    gripper_left_finger   : eksen +y (Fusion "Sol"), origin link6 (0 0 0)
+    gripper_right_finger  : eksen -y (Fusion "Sag"), origin link6 (0 0 0)
+  Parmak eklemleri [m]: 0 = kapali (pad ic yuzeyleri tool0'da, y=0), finger_open = Fusion export pozu
+  (~0.0236 m her parmak, toplam ~47 mm aciklik). Mesh'ler q=0 (kapali) konumunda kaydedildi.
+    gripper_tcp (sabit)   : tool0 ile ayni nokta (tool0 zaten pad ortasi)
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- tek parmak strok sinirlari [m] (export acikligi finger_s0_left ~ 0.0236) -->
+  <xacro:property name="finger_open" value="0.0235"/>
+  <xacro:property name="finger_upper" value="0.025"/>
+  <xacro:property name="finger_margin" value="0.002"/>
+  <!-- parmak pad carpisma kutusu (parmak cercevesinde, sol parmak icin; sag icin y aynalanir) -->
+  <xacro:property name="pad_x" value="0.015"/>
+  <xacro:property name="pad_y" value="0.008"/>
+  <xacro:property name="pad_z" value="0.036"/>
+  <xacro:property name="pad_cx" value="-0.0029"/>
+  <xacro:property name="pad_cz" value="0.143"/>
+
+  <!-- ========== parmaklar (side = left/right, sign = +1/-1) ========== -->
+  <xacro:macro name="rk6_finger" params="side sign m com ixx iyy izz">
+    <joint name="gripper_${side}_finger_joint" type="prismatic">
+      <parent link="link6"/>
+      <child link="gripper_${side}_finger"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="0 ${sign} 0"/>
+      <!-- Sinirlarda kucuk pay: parmak 0'da dururken fizik motoru -1e-19 gibi degerler
+           raporlar; sinir tam 0 olursa ros2_control limit korumasi komutu engelliyor -->
+      <limit lower="${-finger_margin}" upper="${finger_upper}" effort="20.0" velocity="0.1"/>
+      <dynamics damping="1.0" friction="0.0"/>
+    </joint>
+
+    <link name="gripper_${side}_finger">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry><mesh filename="package://rk6_description/meshes/gripper_${side}_finger.stl"/></geometry>
+        <material name="rk6_black"/>
+      </visual>
+      <!-- carpisma: sadece parmak ucu pad'i (kavrama yuzeyi) -->
+      <collision>
+        <origin xyz="${pad_cx} ${sign*pad_y/2} ${pad_cz}" rpy="0 0 0"/>
+        <geometry><box size="${pad_x} ${pad_y} ${pad_z}"/></geometry>
+      </collision>
+      <inertial>
+        <origin xyz="${com}" rpy="0 0 0"/>
+        <mass value="${m}"/>
+        <inertia ixx="${ixx}" ixy="0" ixz="0" iyy="${iyy}" iyz="0" izz="${izz}"/>
+      </inertial>
+    </link>
+
+    <!-- Kavrama icin yuksek surtunme ve sert temas (nesne parmaklar arasindan kaymasin) -->
+    <gazebo reference="gripper_${side}_finger">
+      <mu1>1.5</mu1>
+      <mu2>1.5</mu2>
+      <kp>1000000.0</kp>
+      <kd>100.0</kd>
+      <minDepth>0.001</minDepth>
+      <maxVel>0.1</maxVel>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:rk6_finger side="left" sign="1" m="${gripper_left_finger_m}" com="${gripper_left_finger_com}"
+      ixx="${gripper_left_finger_ixx}" iyy="${gripper_left_finger_iyy}" izz="${gripper_left_finger_izz}"/>
+  <xacro:rk6_finger side="right" sign="-1" m="${gripper_right_finger_m}" com="${gripper_right_finger_com}"
+      ixx="${gripper_right_finger_ixx}" iyy="${gripper_right_finger_iyy}" izz="${gripper_right_finger_izz}"/>
+
+  <!-- ========== kavrama noktasi (TCP) = tool0 ========== -->
+  <joint name="gripper_tcp_joint" type="fixed">
+    <parent link="tool0"/>
+    <child link="gripper_tcp"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="gripper_tcp">
+    <xacro:small_inertial m="0.001"/>
+  </link>
+
+</robot>

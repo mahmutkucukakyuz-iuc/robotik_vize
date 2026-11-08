@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!-- OTOMATIK URETILDI: Fusion entegrasyon araci mesh_birlestir.py (depoya dahil degil). Elle degistirmeyin.
+     Her link icin: kutle [kg], COM [m], atalet kosegeni [kg m2], carpisma kutusu (bbox) merkez/boyut [m]
+     (hepsi link cercevesinde). Parmak s0 = export pozundaki parmak acikligi (tek parmak) [m]. -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- base_link: 23900 ucgen -->
+  <xacro:property name="base_link_m" value="0.4940"/>
+  <xacro:property name="base_link_com" value="0.00052 -0.00105 0.02697"/>
+  <xacro:property name="base_link_ixx" value="0.0006501"/>
+  <xacro:property name="base_link_iyy" value="0.0006501"/>
+  <xacro:property name="base_link_izz" value="0.001166"/>
+  <xacro:property name="base_link_bb_c" value="0.00003 -0.00004 0.02885"/>
+  <xacro:property name="base_link_bb_s" value="0.17000 0.17000 0.05770"/>
+  <!-- link1: 30986 ucgen -->
+  <xacro:property name="link1_m" value="0.6740"/>
+  <xacro:property name="link1_com" value="-0.00048 -0.01086 0.04003"/>
+  <xacro:property name="link1_ixx" value="0.001153"/>
+  <xacro:property name="link1_iyy" value="0.001153"/>
+  <xacro:property name="link1_izz" value="0.001591"/>
+  <xacro:property name="link1_bb_c" value="0.00000 0.00000 0.04810"/>
+  <xacro:property name="link1_bb_s" value="0.17000 0.17000 0.11400"/>
+  <!-- link2: 45012 ucgen -->
+  <xacro:property name="link2_m" value="0.4205"/>
+  <xacro:property name="link2_com" value="-0.00007 0.02779 0.11678"/>
+  <xacro:property name="link2_ixx" value="0.00198"/>
+  <xacro:property name="link2_iyy" value="0.002042"/>
+  <xacro:property name="link2_izz" value="0.0002819"/>
+  <xacro:property name="link2_bb_c" value="0.00000 0.04005 0.11500"/>
+  <xacro:property name="link2_bb_s" value="0.10000 0.08010 0.33000"/>
+  <!-- link3: 34234 ucgen -->
+  <xacro:property name="link3_m" value="0.2745"/>
+  <xacro:property name="link3_com" value="-0.00194 0.03969 0.00880"/>
+  <xacro:property name="link3_ixx" value="0.0002118"/>
+  <xacro:property name="link3_iyy" value="0.0002329"/>
+  <xacro:property name="link3_izz" value="0.0002031"/>
+  <xacro:property name="link3_bb_c" value="0.00000 0.04505 0.00190"/>
+  <xacro:property name="link3_bb_s" value="0.10000 0.09010 0.10380"/>
+  <!-- link4: 43456 ucgen -->
+  <xacro:property name="link4_m" value="0.3500"/>
+  <xacro:property name="link4_com" value="-0.00039 -0.00076 0.12653"/>
+  <xacro:property name="link4_ixx" value="0.0008955"/>
+  <xacro:property name="link4_iyy" value="0.0009227"/>
+  <xacro:property name="link4_izz" value="0.0002586"/>
+  <xacro:property name="link4_bb_c" value="-0.00005 0.00000 0.11240"/>
+  <xacro:property name="link4_bb_s" value="0.10000 0.09000 0.23360"/>
+  <!-- link5: 35696 ucgen -->
+  <xacro:property name="link5_m" value="0.1990"/>
+  <xacro:property name="link5_com" value="-0.00253 -0.02710 0.00691"/>
+  <xacro:property name="link5_ixx" value="0.0001079"/>
+  <xacro:property name="link5_iyy" value="0.0001688"/>
+  <xacro:property name="link5_izz" value="0.0001016"/>
+  <xacro:property name="link5_bb_c" value="-0.00004 -0.02505 0.00188"/>
+  <xacro:property name="link5_bb_s" value="0.09999 0.05010 0.10380"/>
+  <!-- link6: 67874 ucgen -->
+  <xacro:property name="link6_m" value="0.2454"/>
+  <xacro:property name="link6_com" value="0.01095 0.00465 0.04043"/>
+  <xacro:property name="link6_ixx" value="0.0001908"/>
+  <xacro:property name="link6_iyy" value="0.0001969"/>
+  <xacro:property name="link6_izz" value="0.0002064"/>
+  <xacro:property name="link6_bb_c" value="0.00140 0.00001 0.04753"/>
+  <xacro:property name="link6_bb_s" value="0.10299 0.09998 0.09510"/>
+  <!-- gripper_left_finger: 1620 ucgen -->
+  <xacro:property name="gripper_left_finger_m" value="0.0200"/>
+  <xacro:property name="gripper_left_finger_com" value="-0.00288 0.00475 0.12027"/>
+  <xacro:property name="gripper_left_finger_ixx" value="1e-05"/>
+  <xacro:property name="gripper_left_finger_iyy" value="1e-05"/>
+  <xacro:property name="gripper_left_finger_izz" value="1e-05"/>
+  <xacro:property name="gripper_left_finger_bb_c" value="-0.00290 0.00188 0.12227"/>
+  <xacro:property name="gripper_left_finger_bb_s" value="0.01500 0.04684 0.07838"/>
+  <!-- gripper_right_finger: 1620 ucgen -->
+  <xacro:property name="gripper_right_finger_m" value="0.0200"/>
+  <xacro:property name="gripper_right_finger_com" value="-0.00288 -0.00470 0.12024"/>
+  <xacro:property name="gripper_right_finger_ixx" value="1e-05"/>
+  <xacro:property name="gripper_right_finger_iyy" value="1e-05"/>
+  <xacro:property name="gripper_right_finger_izz" value="1e-05"/>
+  <xacro:property name="gripper_right_finger_bb_c" value="-0.00290 -0.00178 0.12226"/>
+  <xacro:property name="gripper_right_finger_bb_s" value="0.01500 0.04684 0.07835"/>
+  <xacro:property name="finger_s0_left" value="0.02355"/>
+  <xacro:property name="finger_s0_right" value="0.02364"/>
+</robot>

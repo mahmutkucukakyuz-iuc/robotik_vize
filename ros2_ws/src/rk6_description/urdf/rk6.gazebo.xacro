@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!-- rk6 Gazebo (Jetty / gz-sim 10) eklentileri ve sensorleri -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:arg name="controllers_file" default="$(find rk6_description)/config/rk6_controllers.yaml"/>
+
+  <!-- ros2_control <-> Gazebo baglantisi (controller_manager bu eklenti icinde calisir) -->
+  <gazebo>
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>$(arg controllers_file)</parameters>
+    </plugin>
+  </gazebo>
+
+  <!-- Simulatorden olculen (ground-truth) link pozlari: /rk6/pose (gz.msgs.Pose_V)
+       ros_gz_bridge ile ROS'ta /gz_link_poses (tf2_msgs/TFMessage) olarak okunur.
+       Her poz model cercevesine (rk6) goredir; FK hata analizinde
+       base_T_tool0 = (model_T_base_link)^-1 * model_T_tool0 hesaplanir. -->
+  <gazebo>
+    <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher">
+      <publish_link_pose>true</publish_link_pose>
+      <publish_sensor_pose>false</publish_sensor_pose>
+      <publish_collision_pose>false</publish_collision_pose>
+      <publish_visual_pose>false</publish_visual_pose>
+      <publish_nested_model_pose>false</publish_nested_model_pose>
+      <use_pose_vector_msg>true</use_pose_vector_msg>
+      <static_publisher>false</static_publisher>
+      <update_frequency>50</update_frequency>
+    </plugin>
+  </gazebo>
+
+  <!-- tool0 (ve base_link) Gazebo'da ayri link olarak kalsin: sabit eklem birlestirmesini (lumping) engelle.
+       Boylece PosePublisher dogrudan tool0 pozunu yayinlar. -->
+  <gazebo reference="tool0_joint">
+    <preserveFixedJoint>true</preserveFixedJoint>
+  </gazebo>
+
+  <!-- Bilek kamerasi -> gz konu: /wrist_camera/image (+ /wrist_camera/camera_info) -->
+  <gazebo reference="camera_link">
+    <sensor name="wrist_camera" type="camera">
+      <always_on>1</always_on>
+      <update_rate>30</update_rate>
+      <visualize>true</visualize>
+      <topic>wrist_camera/image</topic>
+      <gz_frame_id>camera_link</gz_frame_id>
+      <camera>
+        <horizontal_fov>1.047</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>50.0</far>
+        </clip>
+      </camera>
+    </sensor>
+  </gazebo>
+
+  <!-- IMU -> gz konu: /imu -->
+  <gazebo reference="imu_link">
+    <sensor name="imu_sensor" type="imu">
+      <always_on>1</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>imu</topic>
+      <gz_frame_id>imu_link</gz_frame_id>
+    </sensor>
+  </gazebo>
+
+</robot>

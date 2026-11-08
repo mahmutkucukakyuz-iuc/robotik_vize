@@ -1,0 +1,10 @@
+# Ubuntu'da calisan dosyalar (sh, py, launch, xacro) LF satir sonuyla kalsin
+* text=auto eol=lf
+# Windows'ta calisan PowerShell betigi
+*.ps1 text eol=crlf
+# Ikili dosyalar
+*.png binary
+*.jpg binary
+*.pdf binary
+*.stl binary
+*.STL binary
